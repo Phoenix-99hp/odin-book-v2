@@ -1,0 +1,255 @@
+#profileContainer {
+	/* padding-top: 10px; */
+	display: inline-flex;
+	flex-direction: row;
+	position: relative;
+	width: 100%;
+	text-align: center;
+	justify-content: center;
+}
+
+#container {
+	/* border: 2px solid black; */
+	/* padding-top: 15px; */
+	padding-bottom: 30px;
+	/* width: 500px; */
+	/* width: 60%; */
+	max-width: 524px;
+	width: 100%;
+}
+
+#profileInfo {
+	/* width: fit-content;
+	position: absolute;
+	left: 0; */
+	width: 20%;
+}
+
+#placeholder {
+	width: 20%;
+}
+
+.btn {
+	cursor: pointer;
+}
+
+#profileImg {
+	border-radius: 20px;
+}
+
+#username {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 25px;
+	font-family: "Kufam", cursive;
+}
+
+.pcContainer {
+	overflow-wrap: break-word;
+	white-space: pre-wrap;
+	margin: 0 auto;
+	margin-top: 15px;
+	max-width: 500px;
+	padding: 20px;
+	background-color: rgb(187, 222, 243);
+	border-radius: 10px;
+	border: 2px solid black;
+}
+
+.commentUser,
+.postUser {
+	color: rgb(0, 119, 255);
+}
+
+#avatar {
+	border-radius: 10px;
+}
+
+.postUser {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.dash {
+	color: black;
+}
+
+.postTitle {
+	font-size: 25px;
+	/* font-weight: bold; */
+}
+
+.space {
+	padding-bottom: 10px;
+}
+
+.timeSpan {
+	color: black;
+	font-size: 17px;
+	font-family: "Kumbh Sans", sans-serif;
+}
+
+#seenAll {
+	padding-top: 45px;
+	padding-bottom: 15px;
+}
+
+.username {
+	cursor: pointer;
+	color: rgb(0, 119, 255);
+	border: none;
+	outline: none;
+	background: none;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 18px;
+	font-family: "Kumbh Sans", sans-serif;
+}
+
+#feed {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.emptyFeed {
+	padding-bottom: 15px;
+}
+
+#postsHeading {
+	font-size: 35px;
+	width: fit-content;
+	margin: 0 auto;
+	padding-bottom: 10px;
+	/* font-weight: bold; */
+	font-family: "Kufam", cursive;
+	color: rgb(187, 222, 243);
+	text-shadow: 2px 2px 1px blue;
+}
+
+/* #reg {
+	color: black;
+	text-shadow: 2px 2px 2px black;
+} */
+
+#postContainer {
+	align-self: center;
+	width: 100%;
+}
+
+.pBody {
+	font-size: 18px;
+	font-family: "Kumbh Sans", sans-serif;
+}
+
+/* #postsHeading {
+	font-weight: bold;
+	color: rgb(187, 222, 243);
+	text-shadow: 2px 2px 2px blue;
+} */
+
+#profileUser {
+	width: fit-content;
+}
+
+#noPosts {
+	padding-top: 20px;
+	font-size: 17px;
+	font-family: "Kumbh Sans", sans-serif;
+}
+
+.postTitle {
+	font-size: 25px;
+	/* font-weight: bold; */
+	font-family: "Kufam", cursive;
+}
+
+.kText {
+	font-size: 17px;
+	font-family: "Kumbh Sans", sans-serif;
+}
+
+/* #custom {
+	position: absolute;
+} */
+/* #container {
+	border: 2px solid black;
+	padding-top: 15px;
+	padding-bottom: 30px;
+}
+
+.pcContainer {
+	overflow-wrap: break-word;
+	white-space: pre-wrap;
+	border: 2px solid black;
+	margin: 0 auto;
+	margin-top: 15px;
+	max-width: 400px;
+	width: 100%;
+	padding: 10px;
+	background-color: rgb(187, 222, 243);
+	border-radius: 10px;
+}
+
+.commentUser,
+.postUser {
+	color: rgb(0, 119, 255);
+}
+
+.dash {
+	color: black;
+}
+
+.postTitle {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.space {
+	padding-bottom: 10px;
+}
+
+.timeSpan {
+	color: black;
+}
+
+#seenAll {
+	padding-top: 45px;
+	padding-bottom: 15px;
+}
+
+.username {
+	cursor: pointer;
+	color: rgb(0, 119, 255);
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0;
+	font-size: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#feed {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.emptyFeed {
+	padding-bottom: 15px;
+}
+
+.postUser {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#avatar {
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.pBody {
+	font-size: 18px;
+} */

@@ -1,0 +1,36 @@
+#nav {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 0;
+	padding: 20px 20px 18px;
+	background-color: rgb(231, 226, 226);
+	border-radius: 10px;
+	margin-right: 10px;
+}
+
+.navItem {
+	cursor: pointer;
+	border: none;
+	background: none;
+	font-size: 17px;
+	color: rgb(0, 119, 255);
+	/* color: black; */
+	/* color: #a90329;
+	text-shadow: 1px 1px 1px #f7013a; */
+	/* text-shadow: 2px 2px black; */
+	outline: none;
+	font-family: "Kumbh Sans", sans-serif;
+}
+
+.navItem:first-of-type {
+	border-right: 1px solid black;
+}
+
+.navItem:last-of-type {
+	border-left: 1px solid black;
+}
+
+.navItem:hover {
+	text-decoration: underline;
+}

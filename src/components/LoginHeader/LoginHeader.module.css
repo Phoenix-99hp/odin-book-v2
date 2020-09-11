@@ -1,0 +1,64 @@
+#headerContainer {
+	display: flex;
+	flex: 0 1 147px;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	position: relative;
+	padding-bottom: 53px;
+	/* background-color: rgb(228, 48, 48); */
+	/* background: #a90329;  */
+	/* background: -moz-linear-gradient(
+		top,
+		#a90329 0%,
+		#8f0222 44%,
+		#6d0019 100%
+	); 
+	background: -webkit-linear-gradient(
+		top,
+		#a90329 0%,
+		#8f0222 44%,
+		#6d0019 100%
+	); 
+    background: linear-gradient(to bottom, #a90329 0%, #8f0222 44%, #6d0019 100%); */
+	/* background: rgb(187, 222, 243); */
+	/* color: rgb(187, 222, 243); */
+	font-family: "Kufam", cursive;
+	/* color: black; */
+	/* background: rgb(224, 220, 220); */
+	/* text-shadow: 2px 2px 2px blue; */
+	/* opacity: 0.5; */
+	/* margin-left: 20px;
+    margin-right: 20px; */
+	/* justify-content: center; */
+	/* align-items: center; */
+}
+
+#heading {
+	/* display: flex;
+      flex: 0 1 150px; */
+	flex: 1 1 100%;
+	/* align-self: center; */
+	/* align-items: center;
+      justify-content: center; */
+	font-size: 70px;
+	color: rgb(187, 222, 243);
+	text-shadow: 2px 2px 2px blue;
+	border-bottom: 2px solid black;
+	/* mix-blend-mode: darken; */
+	/* opacity: 0.5; */
+}
+
+#subHeading {
+	flex: 1 1 100%;
+	/* position: absolute;
+    left: 50%;
+    transform: translateX(-50%); */
+	top: 105px;
+	font-family: "Kumbh Sans", sans-serif;
+	font-size: 15px;
+}
+
+#contentContainer {
+	position: relative;
+}

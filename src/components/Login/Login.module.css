@@ -1,0 +1,128 @@
+#heading {
+	flex: 1 1 100%;
+	padding-bottom: 20px;
+	font-size: 25px;
+	font-family: "Kufam", cursive;
+	/* text-decoration-line: underline; */
+}
+
+#formContainer {
+	flex: 1 1 100%;
+	/* padding: 10px; */
+	width: 500px;
+	/* padding-top: 10px; */
+}
+
+#loginForm {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: rgb(187, 222, 243);
+	/* background-color: rgb(236, 229, 229); */
+	border-radius: 10px;
+	border: 1px solid black;
+}
+
+.loginInput {
+	/* flex: 1 1 100%; */
+	width: 100%;
+	max-width: 300px;
+	padding-top: 5px;
+	padding-bottom: 2px;
+	margin-left: 5px;
+	font-size: 17px;
+	margin-top: 5px;
+	font-family: "Kumbh Sans", sans-serif;
+	outline: none;
+	border: 1px solid black;
+	border-radius: 5px;
+	/* outline-width: 5px; */
+	/* float: right; */
+}
+
+.loginInput:focus {
+	/* outline-color: #a90329; */
+
+	border-color: rgb(0, 119, 255);
+	/* border-radius: 5px; */
+}
+
+#orSpan {
+	flex: 1 1 100%;
+	padding-bottom: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.formGroup {
+	padding-bottom: 15px;
+	/* width: fit-content; */
+	margin: 0 auto;
+	/* font-size: 20px; */
+}
+
+#facebookBtn,
+#loginBtn {
+	cursor: pointer;
+}
+
+#loginBtn {
+	/* background: #a90329; /* Old browsers */
+	border: 1px solid black;
+	padding: 8px;
+	padding-bottom: 7px;
+	border-radius: 3px;
+	outline: none;
+	color: black;
+	background-color: rgb(148, 226, 31);
+	font-family: "Kumbh Sans", sans-serif;
+	font-size: 17px;
+}
+
+#facebookBtn {
+	background-color: rgb(85, 139, 238);
+	border: 1px solid black;
+	padding: 8px;
+	border-radius: 3px;
+	outline: none;
+	color: white;
+}
+
+#loginBtn:hover,
+#facebookBtn:hover {
+	opacity: 0.7;
+}
+
+#innerFormContainer {
+	text-align: center;
+}
+
+.loginLabel {
+	width: 100px;
+	text-align: left;
+	font-family: "Kumbh Sans", sans-serif;
+	font-size: 17px;
+}
+
+#noAccountSpan {
+	flex: 1 1 100%;
+	padding-top: 20px;
+	font-size: 17px;
+	font-family: "Kumbh Sans", sans-serif;
+}
+
+/* a {
+	color: rgb(8, 113, 235);
+	text-decoration: none;
+} */
+
+#signUp {
+	color: rgb(0, 119, 255);
+	font-family: "Kumbh Sans", sans-serif;
+	/* color: #a90329;
+	text-shadow: 1px 1px 1px #f7013a; */
+}
+
+#signUp:hover {
+	text-decoration: underline;
+}

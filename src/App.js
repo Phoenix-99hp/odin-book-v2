@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import DashboardPage from "./pages/DashboardPage.js";
+import LoginPage from "./pages/LoginPage.js";
+import SignUpPage from "./pages/SignUpPage.js";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import FrViewPage from "./pages/FrViewPage.js";
+import FrSendPage from "./pages/FrSendPage.js";
+import PostPage from "./pages/PostPage.js";
+import ProfilePage from "./pages/ProfilePage.js";
+import UserListPage from "./pages/UserListPage.js";
+import WriteCommentPage from "./pages/WriteCommentPage.js";
+import NotFoundPage from "./pages/NotFoundPage.js";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Router>
+			<div className="App">
+				<Switch>
+					<Route exact path="/" component={LoginPage} />
+					<Route exact path="/dashboard" component={DashboardPage} />
+					<Route exact path="/signup" component={SignUpPage} />
+					<Route exact path="/fr-send" component={FrSendPage} />
+					<Route exact path="/fr-view" component={FrViewPage} />
+					<Route exact path="/post" component={PostPage} />
+					<Route exact path="/profile" component={ProfilePage} />
+					<Route exact path="/user-list" component={UserListPage} />
+					<Route exact path="/comment" component={WriteCommentPage} />
+					<Route exact path="/error" component={NotFoundPage} />
+				</Switch>
+			</div>
+		</Router>
+	);
 }
 
 export default App;
