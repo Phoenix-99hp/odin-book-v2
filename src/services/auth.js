@@ -16,6 +16,22 @@ export const getProfile = () => {
 	}
 };
 
+export const getTransitionState = () => {
+	if (isBrowser() && window.sessionStorage.getItem("Transitioning")) {
+		return JSON.parse(window.sessionStorage.getItem("Transitioning"));
+	} else {
+		return null;
+	}
+};
+
+export const getShouldTransitionState = () => {
+	if (isBrowser() && window.sessionStorage.getItem("Should Transition")) {
+		return JSON.parse(window.sessionStorage.getItem("Should Transition"));
+	} else {
+		return null;
+	}
+};
+
 // export const getFetchStatus = () => {
 // 	if (isBrowser() && window.sessionStorage.getItem("Fetching")) {
 // 		return JSON.parse(window.sessionStorage.getItem("Fetching"));
@@ -32,6 +48,22 @@ export const setUserStorage = (user) =>
 export const setProfileStorage = (profile) =>
 	isBrowser()
 		? window.sessionStorage.setItem("Profile", JSON.stringify(profile))
+		: null;
+
+export const setTransitionStorage = (transitionState) =>
+	isBrowser()
+		? window.sessionStorage.setItem(
+				"Transitioning",
+				JSON.stringify(transitionState)
+		  )
+		: null;
+
+export const setShouldTransitionStorage = (shouldTransitionState) =>
+	isBrowser()
+		? window.sessionStorage.setItem(
+				"Should Transition",
+				JSON.stringify(shouldTransitionState)
+		  )
 		: null;
 
 export const handleLogin = (user) => {

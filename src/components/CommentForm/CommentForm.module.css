@@ -11,9 +11,12 @@
 
 #heading {
 	flex: 1 1 100%;
-	padding-bottom: 20px;
 	font-size: 25px;
 	font-family: "Kufam", cursive;
+	margin: 0 auto;
+	width: fit-content;
+	border-bottom: 1px solid black;
+	margin-bottom: 20px;
 }
 
 .formGroup {
@@ -61,14 +64,22 @@
 	padding-top: 3px;
 	padding-bottom: 3px;
 	margin-left: 5px;
-	font-size: 16px;
+	font-size: 17px;
+	font-family: "Kumbh Sans", sans-serif;
 	margin-top: 5px;
+	outline: none;
+}
+
+#postInput:focus {
+	/* outline-color: #a90329; */
+
+	border-color: rgb(0, 119, 255);
+	/* border-radius: 5px; */
 }
 
 textarea {
 	resize: none;
 	height: 200px;
-	font: 16px Times;
 }
 
 #fieldContainer {

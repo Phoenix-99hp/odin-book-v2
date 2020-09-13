@@ -1,29 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import Header from "../Header/Header.js";
 import styles from "./Layout.module.css";
 import TransitionPage from "../../pages/TransitionPage.js";
-// import { isLoggedIn } from "../../services/auth";
-// import Login from "../../sections/Login";
-// import SEO from "../SEO";
-// import Spinner from "../Spinner";
+import { getTransitionState, setTransitionStorage } from "../../services/auth";
+import { useSelector, useDispatch } from "react-redux";
+import {
+	selectTransitioning,
+	setTransitioning,
+} from "../../redux/slices/transitionSlice";
+import { selectShouldTransition } from "../../redux/slices/shouldTransitionSlice";
 
 const Layout = ({ children }) => {
-	const [isReady, setIsReady] = useState(false);
+	// setTransitionStorage(true);
+	const dispatch = useDispatch();
+	const transitioning = useSelector(selectTransitioning);
+	const shouldTransition = useSelector(selectShouldTransition);
+	const [showTransitionPage, setShowTransitionPage] = useState(true);
 	const [opacity, setOpacity] = useState(false);
 
 	useEffect(() => {
-		setTimeout(() => {
-			setIsReady(true);
-		}, 1000);
+		dispatch(setTransitioning(true));
 	}, []);
 
 	useEffect(() => {
 		setTimeout(() => {
-			setOpacity(true);
-		}, 1000);
-	}, [isReady]);
+			dispatch(setTransitioning(false));
+			setShowTransitionPage(true);
+		}, 2000);
+	}, [shouldTransition]);
 
-	return isReady ? (
+	useEffect(() => {
+		setTimeout(() => {
+			setOpacity(true);
+		}, 2000);
+	}, [showTransitionPage]);
+
+	return transitioning ? (
+		<TransitionPage />
+	) : (
 		<div
 			className={styles.pageContainer}
 			id={opacity ? styles.changeOpacity : null}
@@ -32,8 +46,6 @@ const Layout = ({ children }) => {
 			<main>{children}</main>
 			<footer>© {new Date().getFullYear()}</footer>
 		</div>
-	) : (
-		<TransitionPage />
 	);
 };
 

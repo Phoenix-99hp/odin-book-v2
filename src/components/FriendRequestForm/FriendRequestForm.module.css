@@ -11,9 +11,14 @@
 
 #heading {
 	flex: 1 1 100%;
-	padding-bottom: 20px;
+	/* padding-bottom: 20px; */
 	font-size: 25px;
 	font-family: "Kufam", cursive;
+	width: fit-content;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	border-bottom: 1px solid black;
+
 	/* text-decoration-line: underline; */
 }
 

@@ -1,4 +1,6 @@
-import { logout } from "../../services/auth";
+import React from "react";
+import { logout, getUser } from "../../services/auth";
+import { setProfileStorage } from "../../services/auth";
 
 const DropdownData = [
 	{
@@ -7,6 +9,7 @@ const DropdownData = [
 	},
 	{
 		name: "Your Profile",
+		click: () => setProfileStorage(getUser()),
 		href: "/profile",
 	},
 	{
@@ -23,7 +26,7 @@ const DropdownData = [
 	},
 	{
 		name: "Logout",
-		click: logout(),
+		click: () => logout(),
 	},
 ];
 

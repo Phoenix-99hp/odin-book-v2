@@ -1,8 +1,11 @@
 #heading {
 	flex: 1 1 100%;
-	padding-bottom: 20px;
 	font-size: 25px;
 	font-family: "Kufam", cursive;
+	width: fit-content;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	border-bottom: 1px solid black;
 }
 
 #formContainer {
@@ -11,6 +14,8 @@
 	width: 500px;
 	/* margin-top: 10px; */
 	/* padding: 10px; */
+	padding-right: 20px;
+	padding-left: 20px;
 }
 
 #loginForm {
@@ -37,6 +42,7 @@
 	outline: none;
 	border: 1px solid black;
 	border-radius: 5px;
+	height: 20px;
 	/* float: right; */
 }
 
@@ -110,4 +116,12 @@ a {
 #imageInput {
 	margin-left: 5px;
 	width: fit-content;
+}
+
+@media screen and (max-width: 540px) {
+	.loginInput {
+		margin: 0 auto;
+		margin-top: 5px;
+		display: block;
+	}
 }

@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import styles from "./GetFriendRequests.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser, setUser } from "../../redux/slices/userSlice";
-import { setUserStorage } from "../../services/auth";
+import { setProfile } from "../../redux/slices/profileSlice";
+import { setUserStorage, setProfileStorage } from "../../services/auth";
 import { useHistory } from "react-router-dom";
+import Link from "../Link/Link.js";
 
 const GetFriendRequests = () => {
 	const user = useSelector(selectUser);
@@ -102,10 +104,44 @@ const GetFriendRequests = () => {
 			});
 	}, []);
 
+	const handleSetProfile = (username) => {
+		fetch(`http://localhost:3001/api/profile/${username}`, {
+			method: "GET",
+			mode: "cors",
+		})
+			.then((res) => {
+				return res.json();
+			})
+			.then((response) => {
+				if (response) {
+					dispatch(setProfile(response));
+					setProfileStorage(response);
+					history.push("/profile");
+				} else {
+					console.log("error");
+				}
+			})
+			.catch((error) => {
+				console.log("catch profile", error);
+				history.push("/error");
+			});
+	};
+
 	return frs[0] ? (
 		frs.map((fr, index) => (
 			<div className={styles.fr} key={index}>
-				<span>{fr.username}</span>
+				<img
+					id={styles.avatar}
+					src={
+						"data:image/jpeg;base64," +
+						btoa(String.fromCharCode(...new Uint8Array(fr.avatar.data.data)))
+					}
+				/>
+				<Link
+					id={styles.frUsername}
+					click={() => handleSetProfile(fr.username)}
+					name={fr.username}
+				/>
 				<div className={styles.btnContainer}>
 					<button
 						id={styles.acceptBtn}

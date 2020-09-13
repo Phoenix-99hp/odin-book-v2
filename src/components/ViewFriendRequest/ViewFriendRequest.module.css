@@ -11,9 +11,13 @@
 
 #heading {
 	flex: 1 1 100%;
-	padding-bottom: 20px;
+	/* padding-bottom: 20px; */
 	font-size: 25px;
 	font-family: "Kufam", cursive;
+	width: fit-content;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	border-bottom: 1px solid black;
 }
 
 .formGroup {
@@ -24,18 +28,15 @@
 
 #closeModalBtn {
 	position: absolute;
-	right: 0;
-	top: 0;
+	right: -10px;
+	top: -10px;
 	cursor: pointer;
 	background-color: red;
 	color: white;
 	border: none;
 	outline: none;
 	border-radius: 10px;
-}
-
-#closeModalBtn:hover {
-	opacity: 0.7;
+	padding-bottom: 3px;
 }
 
 #friendReqInput {

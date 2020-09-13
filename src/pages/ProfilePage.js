@@ -6,7 +6,6 @@ import ActionBar from "../components/ActionBar/ActionBar.js";
 const ProfilePage = () => {
 	return (
 		<Layout>
-			{/* <ActionBar /> */}
 			<Profile />
 		</Layout>
 	);

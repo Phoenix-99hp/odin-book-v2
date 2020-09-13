@@ -3,11 +3,15 @@ import { logger } from "redux-logger";
 import { userSliceReducers } from "./slices/userSlice.js";
 import { profileSliceReducers } from "./slices/profileSlice.js";
 import { fetchingSliceReducers } from "./slices/fetchingSlice.js";
+import { transitionSliceReducers } from "./slices/transitionSlice.js";
+import { shouldTransitionSliceReducers } from "./slices/shouldTransitionSlice.js";
 
 const reducer = {
 	user: userSliceReducers,
 	profile: profileSliceReducers,
 	fetching: fetchingSliceReducers,
+	transitioning: transitionSliceReducers,
+	shouldTransition: shouldTransitionSliceReducers,
 };
 
 const middleware = [...getDefaultMiddleware(), logger];

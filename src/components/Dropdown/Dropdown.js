@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
+import React, { useState, useRef } from "react";
 import Link from "../Link/Link.js";
 import DropdownData from "./DropdownData.js";
 import styles from "./Dropdown.module.css";
@@ -15,12 +14,13 @@ const Dropdown = () => {
 			}}
 		>
 			<div
+				onClick={() => setIsInitiated(!isInitiated)}
 				onMouseOver={() => {
 					setIsInitiated(true);
 				}}
 				id={styles.dropdownIcon}
 			>
-				Dropdown
+				Actions
 			</div>
 			<div
 				className={`${styles.itemsInner} ${

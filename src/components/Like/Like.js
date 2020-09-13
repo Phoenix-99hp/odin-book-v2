@@ -100,16 +100,21 @@ const Like = ({ count, post }) => {
 				>
 					Comment
 				</button>
-				<button
-					disabled={post.user._id === user._id ? true : false}
-					className={`${styles.btn} ${styles.likeUnlike}`}
-					onClick={(e) => handleLike(e)}
-				>
-					{userLiked ? "Un-Like" : "Like"}
-				</button>
-				<span className={userLiked ? styles.userLiked : styles.regular}>
-					{likeCount}
-				</span>
+				<div id={styles.likesContainer}>
+					<button
+						disabled={post.user._id === user._id ? true : false}
+						className={`${styles.btn} ${styles.likeUnlike}`}
+						onClick={(e) => handleLike(e)}
+					>
+						{userLiked ? "Un-Like" : "Like"}
+					</button>
+					<span
+						id={styles.likeSpan}
+						className={userLiked ? styles.userLiked : styles.regular}
+					>
+						{likeCount}
+					</span>
+				</div>
 			</div>
 		</>
 	);

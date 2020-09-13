@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import LoginHeader from "../LoginHeader/LoginHeader.js";
 import styles from "./LoginLayout.module.css";
 import TransitionPage from "../../pages/TransitionPage.js";
 
 const LoginLayout = ({ children }) => {
-	const [isReady, setIsReady] = useState(false);
 	const [opacity, setOpacity] = useState(false);
+	const [showTransitionPage, setShowTransitionPage] = useState(true);
 
 	useEffect(() => {
 		setTimeout(() => {
-			setIsReady(true);
+			setShowTransitionPage(false);
 		}, 1000);
 	}, []);
 
@@ -17,9 +17,11 @@ const LoginLayout = ({ children }) => {
 		setTimeout(() => {
 			setOpacity(true);
 		}, 1000);
-	}, [isReady]);
+	}, [showTransitionPage]);
 
-	return isReady ? (
+	return showTransitionPage ? (
+		<TransitionPage />
+	) : (
 		<div
 			className={styles.pageContainer}
 			id={opacity ? styles.changeOpacity : null}
@@ -28,8 +30,6 @@ const LoginLayout = ({ children }) => {
 			<main>{children}</main>
 			<footer>© {new Date().getFullYear()}</footer>
 		</div>
-	) : (
-		<TransitionPage />
 	);
 };
 

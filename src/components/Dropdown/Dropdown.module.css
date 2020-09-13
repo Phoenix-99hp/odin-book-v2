@@ -3,6 +3,7 @@
 	padding: 5px 2px 2px;
 	height: 16px;
 	font-size: 15px;
+	font-family: "Kumbh Sans", sans-serif;
 }
 
 .dropdownItem {
@@ -12,6 +13,7 @@
 	border-top: 1px solid black;
 	color: rgb(0, 119, 255);
 	font-size: 15px;
+	font-family: "Kumbh Sans", sans-serif;
 }
 
 .dropdownItem:first-of-type {
@@ -23,11 +25,13 @@
 }
 
 #dropdownContainer {
-	position: absolute;
-	right: 0;
+	position: relative;
+	/* right: 25%; */
 	width: 115px;
-	top: 50%;
-	transform: translateY(calc(-50% - 26.5px));
+	/* top: 50%; */
+	/* transform: translateY(calc(-50% - 26.5px)); */
+	/* transform: translateX(-50%);
+	transform: translateY(-50%); */
 	height: 25px;
 	opacity: 1;
 	cursor: pointer;
@@ -52,4 +56,8 @@
 .itemsInnerReady {
 	height: 143px;
 	opacity: 1;
+}
+
+#downCaret {
+	position: absolute;
 }

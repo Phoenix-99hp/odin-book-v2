@@ -12,31 +12,31 @@ const ActionBar = () => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 
-	useEffect(() => {
-		fetch(`http://localhost:3001/api/friend-request/${user._id}`, {
-			method: "GET",
-			mode: "cors",
-		})
-			.then((res) => {
-				return res.json();
-			})
-			.then((response) => {
-				if (response) {
-					if (response[0]) {
-						console.log(response);
-						dispatch(setFriendRequests(response));
-						setUserStorage(user);
-					}
-				} else {
-					console.log("no response");
-					return;
-				}
-			})
-			.catch((error) => {
-				console.log("catch", error);
-				history.push("/error");
-			});
-	}, []);
+	// useEffect(() => {
+	// 	fetch(`http://localhost:3001/api/friend-request/${user._id}`, {
+	// 		method: "GET",
+	// 		mode: "cors",
+	// 	})
+	// 		.then((res) => {
+	// 			return res.json();
+	// 		})
+	// 		.then((response) => {
+	// 			if (response) {
+	// 				if (response[0]) {
+	// 					console.log(response);
+	// 					dispatch(setFriendRequests(response));
+	// 					setUserStorage(user);
+	// 				}
+	// 			} else {
+	// 				console.log("no response");
+	// 				return;
+	// 			}
+	// 		})
+	// 		.catch((error) => {
+	// 			console.log("catch", error);
+	// 			history.push("/error");
+	// 		});
+	// }, []);
 
 	return (
 		<div id={styles.actionBarContainer}>

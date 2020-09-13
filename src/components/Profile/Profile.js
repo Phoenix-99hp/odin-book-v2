@@ -8,6 +8,7 @@ import { selectUser } from "../../redux/slices/userSlice";
 import { selectProfile, setProfile } from "../../redux/slices/profileSlice";
 import { useHistory } from "react-router-dom";
 import { setProfileStorage } from "../../services/auth";
+import { useMediaQuery } from "react-responsive";
 
 const Profile = () => {
 	const user = useSelector(selectUser);
@@ -17,7 +18,7 @@ const Profile = () => {
 	const [alreadySentFr, setAlreadySentFr] = useState(null);
 	const [postsToDisplay, setPostsToDisplay] = useState([]);
 	const [hasMore, setHasMore] = useState(true);
-	// const [toggleShouldUpdate, setToggleShouldUpdate] = useState(false);
+	const removeAvatar = useMediaQuery({ query: "(max-width: 380px)" });
 
 	useEffect(() => {
 		fetch(
@@ -139,6 +140,38 @@ const Profile = () => {
 		}
 	};
 
+	const handleFriendReq = (e) => {
+		e.preventDefault();
+		const fr = {
+			username: profile.username,
+			currentUser: user._id,
+		};
+		fetch("http://localhost:3001/api/friend-request", {
+			method: "POST",
+			mode: "cors",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(fr),
+		})
+			.then((res) => {
+				return res.json();
+			})
+			.then((response) => {
+				if (response) {
+					console.log(response);
+					history.push("/dashboard");
+				} else {
+					console.log("no response");
+					history.push("/error");
+				}
+			})
+			.catch((error) => {
+				console.log("catch", error);
+				history.push("/error");
+			});
+	};
+
 	window.onscroll = () => {
 		if (!hasMore) {
 			window.removeEventListener("scroll", this);
@@ -169,19 +202,23 @@ const Profile = () => {
 				<h1 id={styles.username}>{profile.username}</h1>
 				{alreadySentFr === "friends" ? (
 					<div id={styles.custom}>
-						<span className={styles.kText}>You and this user are friends.</span>
+						<span className={styles.kText}>Your friend.</span>
 					</div>
 				) : alreadySentFr === "request" ? (
 					<div id={styles.custom}>
-						<span className={styles.kText}>
-							You have sent this user a friend request.
-						</span>
+						<span className={styles.kText}>Friend request pending.</span>
 					</div>
-				) : user.username !== profile.username ? (
+				) : user.username === profile.username ? (
 					<div id={styles.custom}>
-						<button className={styles.btn}>Send Friend Request</button>
+						<span className={styles.kText}>It's you!</span>
 					</div>
-				) : null}
+				) : (
+					<div id={styles.custom}>
+						<button onClick={(e) => handleFriendReq(e)} className={styles.btn}>
+							Send Friend Request
+						</button>
+					</div>
+				)}
 			</div>
 			<div id={styles.container}>
 				<div id={styles.postContainer}>
@@ -194,9 +231,7 @@ const Profile = () => {
 								<>
 									<div className={styles.pcContainer} key={index}>
 										<div className={styles.postContainer}>
-											<h1 className={`${styles.space} ${styles.postTitle}`}>
-												{post.title}
-											</h1>
+											<h1 className={styles.postTitle}>{post.title}</h1>
 											<div className={`${styles.pBody} ${styles.space}`}>
 												{post.text}
 											</div>
@@ -210,13 +245,17 @@ const Profile = () => {
 													}}
 													id={styles.avatar}
 													src={
-														"data:image/jpeg;base64," +
-														btoa(
-															String.fromCharCode(
-																...new Uint8Array(post.user.avatar.data.data)
-																// profile
-															)
-														)
+														removeAvatar
+															? ""
+															: "data:image/jpeg;base64," +
+															  btoa(
+																	String.fromCharCode(
+																		...new Uint8Array(
+																			post.user.avatar.data.data
+																		)
+																		// profile
+																	)
+															  )
 													}
 												/>
 												<button

@@ -76,10 +76,14 @@
 	font-size: 25px;
 	/* font-weight: bold; */
 	font-family: "Kufam", cursive;
+	border-bottom: 1px solid black;
+	width: fit-content;
+	margin: 0 auto;
+	padding: 0;
 }
 
 .space {
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 }
 
 .timeSpan {
@@ -118,6 +122,10 @@
 	padding-bottom: 15px;
 }
 
+#noPosts {
+	padding-top: 20px;
+}
+
 #postsHeading {
 	font-size: 35px;
 	width: fit-content;
@@ -139,6 +147,7 @@
 .pBody {
 	font-size: 18px;
 	font-family: "Kumbh Sans", sans-serif;
+	padding-top: 20px;
 }
 
 #profileUser {
@@ -228,3 +237,23 @@
 .pBody {
 	font-size: 18px;
 } */
+
+@media screen and (max-width: 1000px) {
+	#profileInfo {
+		display: none;
+	}
+	#placeholder {
+		display: none;
+	}
+	#container {
+		width: 100%;
+		padding-right: 30px;
+		padding-left: 30px;
+	}
+}
+
+@media screen and (max-width: 380px) {
+	#postsHeading {
+		font-size: 30px;
+	}
+}

@@ -23,7 +23,8 @@
 	align-content: center;
 	justify-content: center;
 	position: relative;
-	padding-bottom: 53px;
+	padding-bottom: 52px;
+	padding-top: 1px;
 	font-family: "Kufam", cursive;
 }
 
@@ -44,7 +45,11 @@
 
 #headingSmall {
 	font-family: "Kufam", cursive;
-	flex: 1 1 100%;
+	/* flex: 1 1 100%; */
+	width: fit-content;
+
+	min-width: 372px;
+
 	font-size: 70px;
 	color: rgb(187, 222, 243);
 	text-shadow: 2px 2px 2px blue;
@@ -61,6 +66,65 @@
 	font-size: 15px;
 }
 
+#contentContainerSmall {
+	position: relative;
+	width: 100%;
+	display: inline-flex;
+	justify-content: center;
+}
+
 #contentContainer {
 	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
+
+.placeholder {
+	display: flex;
+	width: 100%;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+}
+
+/* @media screen and (max-width: 1000px) {
+	#dropdownContainer {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		height: 72px;
+		width: 113px;
+		border: 2px solid red;
+	}
+} */
+
+@media screen and (max-width: 750px) {
+	.placeholder {
+		position: absolute;
+		width: fit-content;
+		bottom: -50px;
+		right: 0;
+		margin-right: 30px;
+	}
+}
+
+@media screen and (max-width: 380px) {
+	#headingSmall {
+		min-width: 0px;
+		/* font-size: 50px; */
+	}
+	.placeholder {
+		width: 100%;
+		margin: 0;
+		/* min-width: 0px; */
+		/* font-size: 50px; */
+	}
+}
+
+/* @media screen and (max-width: 280px) {
+	.placeholder {
+		width: 100%;
+		/* min-width: 0px; */
+/* font-size: 50px; */

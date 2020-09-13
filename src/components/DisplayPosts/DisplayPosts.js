@@ -8,6 +8,7 @@ import { selectUser } from "../../redux/slices/userSlice";
 import { setProfile } from "../../redux/slices/profileSlice";
 import { setProfileStorage } from "../../services/auth";
 import { useHistory } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 const DisplayPosts = () => {
 	const user = useSelector(selectUser);
@@ -15,6 +16,7 @@ const DisplayPosts = () => {
 	const history = useHistory();
 	const [postsToDisplay, setPostsToDisplay] = useState([]);
 	const [hasMore, setHasMore] = useState(true);
+	const removeAvatar = useMediaQuery({ query: "(max-width: 380px)" });
 
 	useEffect(() => {
 		fetch(`http://localhost:3001/api/posts/${user._id}`, {
@@ -125,9 +127,7 @@ const DisplayPosts = () => {
 								<>
 									<div className={styles.pcContainer} key={index}>
 										<div className={styles.postContainer}>
-											<h1 className={`${styles.space} ${styles.postTitle}`}>
-												{post.title}
-											</h1>
+											<h1 className={styles.postTitle}>{post.title}</h1>
 											<div className={`${styles.pBody} ${styles.space}`}>
 												{post.text}
 											</div>
@@ -141,13 +141,17 @@ const DisplayPosts = () => {
 													}}
 													id={styles.avatar}
 													src={
-														"data:image/jpeg;base64," +
-														btoa(
-															String.fromCharCode(
-																...new Uint8Array(post.user.avatar.data.data)
-																// profile
-															)
-														)
+														removeAvatar
+															? ""
+															: "data:image/jpeg;base64," +
+															  btoa(
+																	String.fromCharCode(
+																		...new Uint8Array(
+																			post.user.avatar.data.data
+																		)
+																		// profile
+																	)
+															  )
 													}
 												/>
 												<button
@@ -178,7 +182,7 @@ const DisplayPosts = () => {
 						})
 					) : (
 						<div id={styles.noPosts}>
-							Your feed is empty. Write posts or add friends to liven it up!.
+							Your feed is empty. Write posts or add friends to liven it up!
 						</div>
 					)}
 				</div>
