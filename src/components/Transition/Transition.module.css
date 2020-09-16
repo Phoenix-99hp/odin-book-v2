@@ -172,6 +172,7 @@ main {
 }
 #transitionContainer {
 	/* border: 1px solid black; */
+	/* display: flex; */
 	position: absolute;
 	justify-content: center;
 	align-items: center;
@@ -184,12 +185,29 @@ main {
 #logo {
 	margin: 0 auto;
 	font-family: "Kufam", cursive;
-	width: fit-content;
+	/* width: fit-content; */
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* background-color: black; */
+
 	font-size: 70px;
 	color: rgb(187, 222, 243);
 	text-shadow: 2px 2px 2px blue;
-	border-bottom: 2px solid black;
+	/* border-bottom: 2px solid black; */
 	margin-bottom: 16px;
+}
+
+#plus {
+	padding: 15px 20px 0px;
+	/* position: absolute; */
+}
+
+.odinImage,
+.facebookImage {
+	border: 1px solid black;
+	border-radius: 15px;
 }
 
 #changeOpacity {

@@ -1,7 +1,9 @@
 #friendReqForm {
-	max-width: 500px;
+	max-width: 650px;
 	width: 100%;
 	margin: 0 auto;
+	margin-right: 20px;
+	margin-left: 20px;
 	padding: 20px;
 	background-color: rgb(187, 222, 243);
 	border-radius: 10px;
@@ -18,8 +20,6 @@
 	margin: 0 auto;
 	margin-bottom: 20px;
 	border-bottom: 1px solid black;
-
-	/* text-decoration-line: underline; */
 }
 
 .formGroup {
@@ -63,13 +63,21 @@
 #friendReqInput {
 	/* flex: 1 1 100%; */
 	width: 100%;
-	max-width: 300px;
-	padding-top: 3px;
-	padding-bottom: 3px;
+	max-width: 450px;
+	padding-top: 5px;
+	padding-bottom: 2px;
 	margin-left: 5px;
-	font-size: 16px;
+	font-size: 17px;
 	margin-top: 5px;
-	/* float: right; */
+	font-family: "Kumbh Sans", sans-serif;
+	outline: none;
+	border: 1px solid black;
+	border-radius: 5px;
+	height: 20px;
+}
+
+#friendReqInput:focus {
+	border-color: rgb(0, 119, 255);
 }
 
 #usernameLabel {

@@ -1,0 +1,24 @@
+#outer {
+	border: 2px solid blue;
+	border-radius: 3px;
+	height: 25px;
+}
+
+#loadBar {
+	height: 100%;
+	border-radius: 0px;
+	/* width: 0; */
+	background-color: rgb(187, 222, 243);
+	/* background-color: blue; */
+	z-index: 99;
+	animation: load 1.8s ease-out;
+}
+
+@keyframes load {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 100%;
+	}
+}

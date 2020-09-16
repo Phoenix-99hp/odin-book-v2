@@ -188,17 +188,21 @@ const Profile = () => {
 		<div id={styles.profileContainer}>
 			{/* <div id={styles.profileUser}> */}
 			<div id={styles.profileInfo}>
-				<img
-					id={styles.profileImg}
-					src={
-						"data:image/jpeg;base64," +
-						btoa(
-							String.fromCharCode(
-								...new Uint8Array(profile.profilePicture.data.data)
+				{profile.profilePicture ? (
+					<img
+						id={styles.profileImg}
+						src={
+							"data:image/jpeg;base64," +
+							btoa(
+								String.fromCharCode(
+									...new Uint8Array(profile.profilePicture.data.data)
+								)
 							)
-						)
-					}
-				/>
+						}
+					/>
+				) : (
+					<div id={styles.noPicture}>No Picture</div>
+				)}
 				<h1 id={styles.username}>{profile.username}</h1>
 				{alreadySentFr === "friends" ? (
 					<div id={styles.custom}>
@@ -236,33 +240,39 @@ const Profile = () => {
 												{post.text}
 											</div>
 											<div className={`${styles.postUser} ${styles.space}`}>
-												<img
-													onClick={(e) => {
-														handleSetProfile(
-															e.target.nextElementSibling.textContent
-														);
-														// history.push("/profile");
-													}}
-													id={styles.avatar}
-													src={
-														removeAvatar
-															? ""
-															: "data:image/jpeg;base64," +
-															  btoa(
-																	String.fromCharCode(
-																		...new Uint8Array(
-																			post.user.avatar.data.data
+												{post.user.avatar ? (
+													<img
+														onClick={(e) => {
+															handleSetProfile(
+																e.target.nextElementSibling.textContent
+															);
+														}}
+														id={styles.avatar}
+														src={
+															removeAvatar
+																? ""
+																: "data:image/jpeg;base64," +
+																  btoa(
+																		String.fromCharCode(
+																			...new Uint8Array(
+																				post.user.avatar.data.data
+																			)
 																		)
-																		// profile
-																	)
-															  )
-													}
-												/>
+																  )
+														}
+													/>
+												) : (
+													<div id={styles.noAvatar}>No Avatar</div>
+												)}
 												<button
 													onClick={(e) =>
 														handleSetProfile(e.target.textContent)
 													}
-													className={styles.username}
+													className={`${styles.username} ${
+														user.username === profile.username
+															? styles.notClickable
+															: null
+													}`}
 												>
 													{post.user.username}
 												</button>
@@ -274,7 +284,7 @@ const Profile = () => {
 										</div>
 									</div>
 									<Comments
-										// setAlreadySentFr={setAlreadySentFr}
+										clickableUser={false}
 										setPostsToDisplay={setPostsToDisplay}
 										post={post}
 									/>

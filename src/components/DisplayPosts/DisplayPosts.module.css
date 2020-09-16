@@ -60,6 +60,7 @@
 
 #avatar {
 	border-radius: 10px;
+	cursor: pointer;
 }
 
 .postUser {
@@ -73,6 +74,7 @@
 }
 
 .postTitle {
+	overflow-wrap: anywhere;
 	font-size: 25px;
 	/* font-weight: bold; */
 	font-family: "Kufam", cursive;
@@ -124,6 +126,8 @@
 
 #noPosts {
 	padding-top: 20px;
+	font-size: 17px;
+	font-family: "Kumbh Sans", sans-serif;
 }
 
 #postsHeading {
@@ -139,7 +143,8 @@
 #postContainer {
 	align-self: center;
 	/* width: 100%; */
-	max-width: 524px;
+	/* max-width: 524px; */
+	max-width: 650px;
 	width: 100%;
 	margin: 0 auto;
 }
@@ -152,6 +157,13 @@
 
 #profileUser {
 	width: fit-content;
+}
+
+#noAvatar {
+	height: 60px;
+	width: 60px;
+	color: white;
+	background-color: rgb(37, 37, 37);
 }
 
 /* #container {

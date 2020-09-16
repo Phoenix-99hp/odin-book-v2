@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import FriendRequests from "../FriendRequests/FriendRequests.js";
 import styles from "./ActionBar.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser, setFriendRequests } from "../../redux/slices/userSlice";
@@ -12,32 +11,6 @@ const ActionBar = () => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 
-	// useEffect(() => {
-	// 	fetch(`http://localhost:3001/api/friend-request/${user._id}`, {
-	// 		method: "GET",
-	// 		mode: "cors",
-	// 	})
-	// 		.then((res) => {
-	// 			return res.json();
-	// 		})
-	// 		.then((response) => {
-	// 			if (response) {
-	// 				if (response[0]) {
-	// 					console.log(response);
-	// 					dispatch(setFriendRequests(response));
-	// 					setUserStorage(user);
-	// 				}
-	// 			} else {
-	// 				console.log("no response");
-	// 				return;
-	// 			}
-	// 		})
-	// 		.catch((error) => {
-	// 			console.log("catch", error);
-	// 			history.push("/error");
-	// 		});
-	// }, []);
-
 	return (
 		<div id={styles.actionBarContainer}>
 			<button
@@ -45,7 +18,7 @@ const ActionBar = () => {
 				className={styles.btn}
 				onClick={() => history.push("/dashboard")}
 			>
-				Dashboard
+				Feed
 			</button>
 			<button
 				id={styles.userListBtn}
@@ -56,14 +29,14 @@ const ActionBar = () => {
 					history.push("/profile");
 				}}
 			>
-				Your Profile
+				Profile
 			</button>
 			<button
 				id={styles.userListBtn}
 				className={styles.btn}
 				onClick={() => history.push("/user-list")}
 			>
-				User List
+				Users List
 			</button>
 			<button
 				id={styles.addFriendBtn}
@@ -72,7 +45,14 @@ const ActionBar = () => {
 			>
 				Add Friends
 			</button>
-			<FriendRequests requests={user.friendRequests} />
+			<button
+				id={styles.friendRequestsBtn}
+				className={styles.btn}
+				onClick={() => history.push("/fr-view")}
+			>
+				Friend Requests{" "}
+				<span id={styles.frNumber}>{user.friendRequests.length}</span>
+			</button>
 			<button className={styles.btn} onClick={() => history.push("/post")}>
 				Write Post
 			</button>

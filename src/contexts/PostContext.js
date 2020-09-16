@@ -13,7 +13,3 @@ export const PostContextProvider = ({ children }) => {
 		</PostContext.Provider>
 	);
 };
-
-// export default ({ element }) => (
-// 	<PostContextProvider>{element}</PostContextProvider>
-// );

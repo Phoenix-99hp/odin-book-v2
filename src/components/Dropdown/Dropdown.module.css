@@ -26,12 +26,9 @@
 
 #dropdownContainer {
 	position: relative;
-	/* right: 25%; */
-	width: 115px;
-	/* top: 50%; */
-	/* transform: translateY(calc(-50% - 26.5px)); */
-	/* transform: translateX(-50%);
-	transform: translateY(-50%); */
+
+	/* width: 115px; */
+	width: 150px;
 	height: 25px;
 	opacity: 1;
 	cursor: pointer;
@@ -54,7 +51,8 @@
 }
 
 .itemsInnerReady {
-	height: 143px;
+	/* height: 143px; */
+	height: 168px;
 	opacity: 1;
 }
 

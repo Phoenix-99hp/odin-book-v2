@@ -1,0 +1,15 @@
+#selectMenuBtn {
+	position: absolute;
+	width: 150px;
+	height: 25px;
+	opacity: 1;
+	cursor: pointer;
+	z-index: 100;
+	background: none;
+	border: 1px solid black;
+	padding: 5px 2px 2px;
+	height: 25px;
+	font-size: 15px;
+	font-family: "Kumbh Sans", sans-serif;
+	outline: none;
+}

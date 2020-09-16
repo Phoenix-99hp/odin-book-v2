@@ -64,7 +64,10 @@
 	/* font-size: 20px; */
 }
 
-#facebookBtn,
+.formGroup:last-of-type {
+	padding-bottom: 20px;
+}
+
 #loginBtn {
 	cursor: pointer;
 }
@@ -72,8 +75,8 @@
 #loginBtn {
 	/* background: #a90329; /* Old browsers */
 	border: 1px solid black;
-	padding: 8px;
-	padding-bottom: 7px;
+	padding: 6px 6px 5px;
+	/* padding-bottom: 7px; */
 	border-radius: 3px;
 	outline: none;
 	color: black;

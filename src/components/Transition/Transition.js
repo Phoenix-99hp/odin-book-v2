@@ -11,6 +11,9 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../Spinner/Spinner.js";
 import styles from "./Transition.module.css";
+import LoadBar from "../LoadBar/LoadBar.js";
+import odinProjectIMG from "../../images/odin.jpg";
+import facebookIMG from "../../images/facebook2.png";
 
 const Transition = () => {
 	const dispatch = useDispatch();
@@ -44,8 +47,12 @@ const Transition = () => {
 			<main>
 				<div id={styles.contentArea}>
 					<div id={styles.transitionContainer}>
-						<div id={styles.logo}>OB</div>
-						<Spinner />
+						<div id={styles.logo}>
+							<img className={styles.odinImage} src={odinProjectIMG} />
+							<span id={styles.plus}>{"-"}</span>
+							<img className={styles.facebookImage} src={facebookIMG} />
+						</div>
+						<LoadBar />
 					</div>
 				</div>
 			</main>

@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./FriendRequestForm.module.css";
 import { selectUser } from "../../redux/slices/userSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { ErrorContext } from "../../contexts/ErrorContext";
 
 const FriendRequestForm = () => {
+	const { setMessage } = useContext(ErrorContext);
 	const user = useSelector(selectUser);
 	const history = useHistory();
+
+	const validate = ({ username }) => {
+		const trimmed = username.trim();
+		if (!trimmed || trimmed.length > 30) {
+			return false;
+		} else {
+			return true;
+		}
+	};
 
 	const handleFriendReq = (e) => {
 		e.preventDefault();
@@ -15,30 +26,51 @@ const FriendRequestForm = () => {
 			username: friendReqUsername,
 			currentUser: user._id,
 		};
-		fetch("http://localhost:3001/api/friend-request", {
-			method: "POST",
-			mode: "cors",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(fr),
-		})
-			.then((res) => {
-				return res.json();
+		if (validate(fr)) {
+			fetch("http://localhost:3001/api/friend-request", {
+				method: "POST",
+				mode: "cors",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(fr),
 			})
-			.then((response) => {
-				if (response) {
-					console.log(response);
-					history.push("/dashboard");
-				} else {
-					console.log("no response");
+				.then((res) => {
+					return res.json();
+				})
+				.then((response) => {
+					if (response) {
+						console.log(response);
+						window.location.reload();
+					} else {
+						setMessage({
+							title: "Something went wrong",
+							body:
+								"Make sure you entered an existing username, and that you haven't already sent this user a friend request",
+							href: "/fr-send",
+							linkName: "Try Again",
+						});
+						history.push("/error");
+					}
+				})
+				.catch((error) => {
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/fr-send",
+						linkName: "Try Again",
+					});
 					history.push("/error");
-				}
-			})
-			.catch((error) => {
-				console.log("catch", error);
-				history.push("/error");
+				});
+		} else {
+			setMessage({
+				title: "Validation failed",
+				body: "The username you entered does not exist",
+				href: "/fr-send",
+				linkName: "Try Again",
 			});
+			history.push("/error");
+		}
 	};
 
 	return (

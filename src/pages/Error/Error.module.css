@@ -1,0 +1,27 @@
+#errorContainer {
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+#errorTitle {
+	font-size: 25px;
+	font-family: "Kumbh Sans", sans-serif;
+	font-weight: bolder;
+	color: rgb(245, 10, 10);
+	padding-bottom: 20px;
+}
+
+#errorBody {
+	font-size: 17px;
+	font-family: "Kumbh Sans", sans-serif;
+	padding-bottom: 20px;
+}
+
+#link {
+	font-size: 17px;
+	font-family: "Kumbh Sans", sans-serif;
+}
+
+#link:hover {
+	text-decoration: underline;
+}

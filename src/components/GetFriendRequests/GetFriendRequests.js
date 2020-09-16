@@ -6,12 +6,14 @@ import { setProfile } from "../../redux/slices/profileSlice";
 import { setUserStorage, setProfileStorage } from "../../services/auth";
 import { useHistory } from "react-router-dom";
 import Link from "../Link/Link.js";
+import { useMediaQuery } from "react-responsive";
 
 const GetFriendRequests = () => {
 	const user = useSelector(selectUser);
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const [frs, setFrs] = useState([]);
+	const removeAvatar = useMediaQuery({ query: "(max-width: 515px)" });
 
 	const acceptFr = (e) => {
 		e.preventDefault();
@@ -34,6 +36,7 @@ const GetFriendRequests = () => {
 					console.log(response);
 					dispatch(setUser(response));
 					setUserStorage(response);
+					window.location.reload();
 					// setFrs(response.friendRequests);
 					// window.location.reload();
 					// setFrs(response);
@@ -69,8 +72,7 @@ const GetFriendRequests = () => {
 					console.log(response);
 					dispatch(setUser(response));
 					setUserStorage(response);
-					// setFrs(response.friendRequests);
-					// window.location.reload();
+					window.location.reload();
 				} else {
 					console.log("no response");
 					history.push("/error");
@@ -130,18 +132,24 @@ const GetFriendRequests = () => {
 	return frs[0] ? (
 		frs.map((fr, index) => (
 			<div className={styles.fr} key={index}>
-				<img
-					id={styles.avatar}
-					src={
-						"data:image/jpeg;base64," +
-						btoa(String.fromCharCode(...new Uint8Array(fr.avatar.data.data)))
-					}
-				/>
-				<Link
-					id={styles.frUsername}
-					click={() => handleSetProfile(fr.username)}
-					name={fr.username}
-				/>
+				<div className={styles.avatarUsername}>
+					<img
+						id={styles.avatar}
+						src={
+							removeAvatar
+								? ""
+								: "data:image/jpeg;base64," +
+								  btoa(
+										String.fromCharCode(...new Uint8Array(fr.avatar.data.data))
+								  )
+						}
+					/>
+					<Link
+						id={styles.frUsername}
+						click={() => handleSetProfile(fr.username)}
+						name={fr.username}
+					/>
+				</div>
 				<div className={styles.btnContainer}>
 					<button
 						id={styles.acceptBtn}
@@ -161,7 +169,9 @@ const GetFriendRequests = () => {
 			</div>
 		))
 	) : (
-		<span>There are no friend requests for you to accept at this time.</span>
+		<span id={styles.noFriendReqs}>
+			There are no friend requests for you to accept at this time.
+		</span>
 	);
 };
 

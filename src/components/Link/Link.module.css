@@ -1,0 +1,20 @@
+#valueDiv {
+	position: relative;
+}
+
+#valueSpan {
+	position: absolute;
+	background-color: red;
+	color: white;
+	width: 16px;
+	height: 15px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	font: 400 13.3333px Arial;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	right: -2px;
+	z-index: 99;
+	top: -5px;
+}

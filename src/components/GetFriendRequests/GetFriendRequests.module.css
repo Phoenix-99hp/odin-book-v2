@@ -1,8 +1,9 @@
 .fr {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	position: relative;
 	align-items: center;
+	padding-bottom: 20px;
 }
 
 .btn {
@@ -10,9 +11,12 @@
 	border: 1px solid black;
 	padding-left: 5px;
 	padding-right: 5px;
-	padding-top: 3px;
-	padding-bottom: 3px;
+	/* padding-top: 3px;
+	padding-bottom: 3px; */
 	border-radius: 3px;
+	padding-top: 7px;
+	padding-bottom: 5px;
+	outline: none;
 }
 
 .btn:nth-of-type(2) {
@@ -35,11 +39,15 @@
 }
 
 #acceptBtn {
+	font-size: 15px;
+	font-family: "Kumbh Sans", sans-serif;
 	color: white;
 	background-color: rgb(13, 192, 13);
 }
 
 #declineBtn {
+	font-size: 15px;
+	font-family: "Kumbh Sans", sans-serif;
 	margin-left: 5px;
 	background-color: rgb(241, 11, 11);
 	color: white;
@@ -55,4 +63,35 @@
 
 #frUsername:hover {
 	text-decoration: underline;
+}
+
+#noFriendReqs {
+	font-size: 17px;
+	font-family: "Kumbh Sans", sans-serif;
+}
+
+.avatarUsername {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media screen and (max-width: 733px) {
+	.fr {
+		display: block;
+		text-align: center;
+	}
+	.btnContainer {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		flex: 1 1 100%;
+		margin-top: 30px;
+	}
+
+	.avatarUsername {
+		/* width: 100%; */
+		flex: 1 1 100%;
+		/* margin-bottom: 20px; */
+	}
 }

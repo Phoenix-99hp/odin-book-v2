@@ -5,6 +5,7 @@ import { selectUser, setUser } from "../../redux/slices/userSlice";
 import { selectProfile, setProfile } from "../../redux/slices/profileSlice";
 import { setUserStorage, setProfileStorage } from "../../services/auth";
 import { useHistory } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 const UserList = () => {
 	const user = useSelector(selectUser);
@@ -12,6 +13,7 @@ const UserList = () => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const [users, setUsers] = useState([]);
+	const removeAvatar = useMediaQuery({ query: "(max-width: 515px)" });
 
 	useEffect(() => {
 		fetch(`http://localhost:3001/api/all-users/${user._id}`, {
@@ -130,6 +132,7 @@ const UserList = () => {
 			.then((response) => {
 				if (response) {
 					console.log(response);
+					window.location.reload();
 					//   navigate("/dashboard")
 					// window.location.reload();
 				} else {
@@ -161,7 +164,7 @@ const UserList = () => {
 					console.log(response);
 					dispatch(setUser(response));
 					setUserStorage(response);
-					// window.location.reload();
+					window.location.reload();
 					// setUsers(response);
 				} else {
 					console.log("no response");
@@ -186,8 +189,8 @@ const UserList = () => {
 			})
 			.then((response) => {
 				if (response) {
-					dispatch(setProfile(response));
 					setProfileStorage(response);
+					dispatch(setProfile(response));
 				} else {
 					// window.location.href = "/error";
 					history.push("/error");
@@ -212,70 +215,86 @@ const UserList = () => {
 			{users[0] ? (
 				users.map((individual, index) => (
 					<div className={styles.fr} key={index}>
-						<img
-							className={styles.avatar}
-							src={
-								"data:image/jpeg;base64," +
-								btoa(
-									String.fromCharCode(
-										...new Uint8Array(individual.avatar.data.data)
-									)
-								)
-							}
-						/>
-						<button
-							className={styles.username}
-							onClick={(e) => {
-								handleSetProfile(e.target.textContent);
-								history.push("/profile");
-							}}
-						>
-							{individual.username}
-						</button>
-						{individual.friendRequests.includes(user._id) ? (
-							<div className={styles.btnContainer} data-index={index}>
-								<span>Friend request pending...</span>
-							</div>
-						) : user.friendRequests.includes(individual._id) ? (
-							<div className={styles.btnContainer} data-index={index}>
+						<div id={styles.outline}>
+							<div id={styles.avatarUsername}>
+								{individual.avatar ? (
+									<img
+										onClick={(e) => {
+											handleSetProfile(e.target.nextElementSibling.textContent);
+											history.push("/profile");
+										}}
+										className={styles.avatar}
+										src={
+											removeAvatar
+												? ""
+												: "data:image/jpeg;base64," +
+												  btoa(
+														String.fromCharCode(
+															...new Uint8Array(individual.avatar.data.data)
+														)
+												  )
+										}
+									/>
+								) : (
+									<div id={removeAvatar ? styles.hide : styles.noAvatar}>
+										No Avatar
+									</div>
+								)}
 								<button
-									id={styles.acceptBtn}
-									className={styles.btn}
-									onClick={(e) => acceptFr(e)}
+									className={styles.username}
+									onClick={(e) => {
+										handleSetProfile(e.target.textContent);
+										history.push("/profile");
+									}}
 								>
-									Accept
-								</button>
-								<button
-									id={styles.declineBtn}
-									className={styles.btn}
-									onClick={(e) => declineFr(e)}
-								>
-									Decline
+									{individual.username}
 								</button>
 							</div>
-						) : user.friends.includes(individual._id) ? (
-							<div className={styles.btnContainer} data-index={index}>
-								<button
-									className={styles.btn}
-									onClick={(e) => handleRemoveFriend(e)}
-								>
-									Remove Friend
-								</button>
-							</div>
-						) : (
-							<div className={styles.btnContainer} data-index={index}>
-								<button
-									className={styles.btn}
-									onClick={(e) => handleFriendReq(e)}
-								>
-									Send Friend Request
-								</button>
-							</div>
-						)}
+							{individual.friendRequests.includes(user._id) ? (
+								<div className={styles.btnContainer} data-index={index}>
+									<span id={styles.pendingFr}>Friend request pending...</span>
+								</div>
+							) : user.friendRequests.includes(individual._id) ? (
+								<div className={styles.btnContainer} data-index={index}>
+									<button
+										id={styles.acceptBtn}
+										className={styles.btn}
+										onClick={(e) => acceptFr(e)}
+									>
+										Accept
+									</button>
+									<button
+										id={styles.declineBtn}
+										className={styles.btn}
+										onClick={(e) => declineFr(e)}
+									>
+										Decline
+									</button>
+								</div>
+							) : user.friends.includes(individual._id) ? (
+								<div className={styles.btnContainer} data-index={index}>
+									<button
+										className={styles.btn}
+										onClick={(e) => handleRemoveFriend(e)}
+									>
+										Remove Friend
+									</button>
+								</div>
+							) : (
+								<div className={styles.btnContainer} data-index={index}>
+									<button
+										className={styles.btn}
+										onClick={(e) => handleFriendReq(e)}
+									>
+										Send Friend Request
+									</button>
+								</div>
+							)}
+						</div>
 					</div>
 				))
 			) : (
-				<div id={styles.friendReqForm}>
+				<div id={styles.noUsers}>
 					There are currently no other users registered.
 				</div>
 			)}

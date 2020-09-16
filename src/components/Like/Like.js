@@ -11,6 +11,8 @@ const Like = ({ count, post }) => {
 	const [likeCount, setLikeCount] = useState(count);
 	const [userLiked, setUserLiked] = useState(false);
 	const { postId, setPost } = useContext(PostContext);
+	const [spinner, setSpinner] = useState(false);
+	const [comments, showComments] = useState(false);
 
 	useEffect(() => {
 		fetch(`http://localhost:3001/api/posts/user-like/${user._id}/${post._id}`, {
@@ -32,6 +34,13 @@ const Like = ({ count, post }) => {
 				history.push("/error");
 			});
 	}, []);
+
+	// useEffect(() => {
+	// 	setSpinner(true);
+	// 	setTimeout(() => {
+	// 		setSpinner(false);
+	// 	}, 2000);
+	// }, [comments]);
 
 	const handleLike = (e) => {
 		e.preventDefault();
@@ -76,47 +85,47 @@ const Like = ({ count, post }) => {
 
 	const handleShowHideComments = (e) => {
 		if (e.target.textContent === "Show Comments") {
+			// showComments(false);
 			setPost([...postId, post._id]);
 		} else if (e.target.textContent === "Hide Comments") {
+			// showComments(true);
 			setPost(postId.filter((val, index) => val !== post._id));
 		}
 	};
 
 	return (
-		<>
-			<div className={styles.likeContainer}>
+		<div className={styles.likeContainer}>
+			<button
+				className={`${styles.btn} ${styles.showComments}`}
+				onClick={(e) => handleShowHideComments(e)}
+			>
+				{postId.includes(post._id) ? "Hide Comments" : "Show Comments"}
+			</button>
+			<button
+				className={styles.btn}
+				onClick={() => {
+					setPost([...postId, post._id]);
+					history.push("/comment");
+				}}
+			>
+				Comment
+			</button>
+			<div id={styles.likesContainer}>
 				<button
-					className={`${styles.btn} ${styles.showComments}`}
-					onClick={(e) => handleShowHideComments(e)}
+					disabled={post.user._id === user._id ? true : false}
+					className={`${styles.btn} ${styles.likeUnlike}`}
+					onClick={(e) => handleLike(e)}
 				>
-					{postId.includes(post._id) ? "Hide Comments" : "Show Comments"}
+					{userLiked ? "Un-Like" : "Like"}
 				</button>
-				<button
-					className={styles.btn}
-					onClick={() => {
-						setPost([...postId, post._id]);
-						history.push("/comment");
-					}}
+				<span
+					id={styles.likeSpan}
+					className={userLiked ? styles.userLiked : styles.regular}
 				>
-					Comment
-				</button>
-				<div id={styles.likesContainer}>
-					<button
-						disabled={post.user._id === user._id ? true : false}
-						className={`${styles.btn} ${styles.likeUnlike}`}
-						onClick={(e) => handleLike(e)}
-					>
-						{userLiked ? "Un-Like" : "Like"}
-					</button>
-					<span
-						id={styles.likeSpan}
-						className={userLiked ? styles.userLiked : styles.regular}
-					>
-						{likeCount}
-					</span>
-				</div>
+					{likeCount}
+				</span>
 			</div>
-		</>
+		</div>
 	);
 };
 

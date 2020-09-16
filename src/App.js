@@ -9,7 +9,7 @@ import PostPage from "./pages/PostPage.js";
 import ProfilePage from "./pages/ProfilePage.js";
 import UserListPage from "./pages/UserListPage.js";
 import WriteCommentPage from "./pages/WriteCommentPage.js";
-import NotFoundPage from "./pages/NotFoundPage.js";
+import ErrorPage from "./pages/Error/ErrorPage.js";
 
 function App() {
 	return (
@@ -25,7 +25,7 @@ function App() {
 					<Route exact path="/profile" component={ProfilePage} />
 					<Route exact path="/user-list" component={UserListPage} />
 					<Route exact path="/comment" component={WriteCommentPage} />
-					<Route exact path="/error" component={NotFoundPage} />
+					<Route exact path="/error" component={ErrorPage} />
 				</Switch>
 			</div>
 		</Router>

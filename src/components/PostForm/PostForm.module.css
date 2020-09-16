@@ -1,5 +1,5 @@
 #postForm {
-	max-width: 500px;
+	max-width: 650px;
 	width: 100%;
 	/* margin: 0 auto; */
 	margin-right: 20px;
@@ -64,23 +64,24 @@
 	opacity: 0.7;
 }
 
-#postInput {
+.postInput {
 	/* flex: 1 1 100%; */
 	/* display: flex; */
 	position: relative;
 	width: 100%;
-	max-width: 300px;
-	padding-top: 3px;
+	max-width: 450px;
+	padding-top: 5px;
 	padding-bottom: 3px;
 	margin-left: 5px;
 	font-size: 17px;
 	margin-top: 5px;
 	outline: none;
 	font-family: "Kumbh Sans", sans-serif;
-	/* float: right; */
+	border: 1px solid black;
+	border-radius: 5px;
 }
 
-#postInput:focus {
+.postInput:focus {
 	border-color: rgb(0, 119, 255);
 }
 

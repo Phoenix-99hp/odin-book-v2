@@ -4,17 +4,21 @@ import { setProfileStorage } from "../../services/auth";
 
 const DropdownData = [
 	{
-		name: "Dashboard",
+		name: "Feed",
 		href: "/dashboard",
 	},
 	{
-		name: "Your Profile",
+		name: "Profile",
 		click: () => setProfileStorage(getUser()),
 		href: "/profile",
 	},
 	{
 		name: "Add Friends",
 		href: "/fr-send",
+	},
+	{
+		name: "Friend Requests",
+		href: "/fr-view",
 	},
 	{
 		name: "User List",

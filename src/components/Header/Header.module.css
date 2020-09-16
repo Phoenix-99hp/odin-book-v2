@@ -34,7 +34,10 @@
 	font-family: "Kufam", cursive;
 	/* display: flex;
 		flex: 0 1 150px; */
-	flex: 1 1 100%;
+	/* flex: 1 1 100%; */
+	min-width: 372px;
+	width: fit-content;
+	border-bottom: 2px solid black;
 	/* align-self: center; */
 	/* align-items: center;
 		justify-content: center; */

@@ -149,7 +149,7 @@ main {
 	flex: 1 1 auto;
 	align-content: baseline;
 	padding-bottom: 20px;
-	padding-top: 10px;
+	padding-top: 100px;
 }
 
 #changeOpacity {

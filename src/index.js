@@ -5,13 +5,19 @@ import store from "./redux/store";
 import { Provider } from "react-redux";
 import { PostContextProvider } from "./contexts/PostContext.js";
 import * as serviceWorker from "./serviceWorker";
+import { DropdownContextProvider } from "./contexts/DropdownContext";
+import { ErrorContextProvider } from "./contexts/ErrorContext";
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<PostContextProvider>
-				<App />
-			</PostContextProvider>
+			<ErrorContextProvider>
+				<DropdownContextProvider>
+					<PostContextProvider>
+						<App />
+					</PostContextProvider>
+				</DropdownContextProvider>
+			</ErrorContextProvider>
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById("root")

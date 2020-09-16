@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useDispatch } from "react-redux";
 import styles from "./Login.module.css";
 import { handleLogin } from "../../services/auth";
 import { useHistory, Link } from "react-router-dom";
+import { ErrorContext } from "../../contexts/ErrorContext";
 
 // const { setProfile } = useContext(ProfileContext);
 const Login = () => {
+	const { setMessage } = useContext(ErrorContext);
 	const history = useHistory();
 	// const user = useSelector(selectUser);
 	// const dispatch = useDispatch();
@@ -23,10 +25,18 @@ const Login = () => {
 	};
 
 	const validate = ({ username, password }) => {
-		if (!username || !password) {
+		if (username && password) {
+			const trimmedUsername = username.trim();
+			if (!trimmedUsername || !password) {
+				return false;
+			} else if (trimmedUsername.length > 30 || password.length > 30) {
+				return false;
+			} else {
+				return true;
+			}
+		} else {
 			return false;
 		}
-		return true;
 	};
 
 	// const handleSetProfile = (username) => {
@@ -77,6 +87,13 @@ const Login = () => {
 					history.push("/error");
 				});
 		} else {
+			setMessage({
+				title: "Validation failed",
+				body:
+					"The username and password fields must be filled out and no more than 30 characters.",
+				href: "/",
+				linkName: "Try Again",
+			});
 			history.push("/error");
 		}
 	};

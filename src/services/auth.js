@@ -32,13 +32,13 @@ export const getShouldTransitionState = () => {
 	}
 };
 
-// export const getFetchStatus = () => {
-// 	if (isBrowser() && window.sessionStorage.getItem("Fetching")) {
-// 		return JSON.parse(window.sessionStorage.getItem("Fetching"));
-// 	} else {
-// 		return null;
-// 	}
-// };
+export const getMenu = () => {
+	if (isBrowser() && window.sessionStorage.getItem("Menu")) {
+		return JSON.parse(window.sessionStorage.getItem("Menu"));
+	} else {
+		return null;
+	}
+};
 
 export const setUserStorage = (user) =>
 	isBrowser()
@@ -64,6 +64,11 @@ export const setShouldTransitionStorage = (shouldTransitionState) =>
 				"Should Transition",
 				JSON.stringify(shouldTransitionState)
 		  )
+		: null;
+
+export const setMenu = (selection) =>
+	isBrowser()
+		? window.sessionStorage.setItem("Menu", JSON.stringify(selection))
 		: null;
 
 export const handleLogin = (user) => {

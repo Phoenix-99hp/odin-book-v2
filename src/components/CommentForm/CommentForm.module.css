@@ -1,5 +1,5 @@
 #commentForm {
-	max-width: 500px;
+	max-width: 650px;
 	width: 100%;
 	margin: 0 auto;
 	padding: 20px;
@@ -68,6 +68,7 @@
 	font-family: "Kumbh Sans", sans-serif;
 	margin-top: 5px;
 	outline: none;
+	max-width: 450px;
 }
 
 #postInput:focus {

@@ -1,7 +1,9 @@
 #friendReqForm {
-	max-width: 500px;
+	max-width: 650px;
 	width: 100%;
 	margin: 0 auto;
+	margin-right: 20px;
+	margin-left: 20px;
 	padding: 20px;
 	background-color: rgb(187, 222, 243);
 	border-radius: 10px;

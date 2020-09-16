@@ -17,13 +17,14 @@
 	/* border: 10px solid #f3f3f3; */
 	border: 10px solid rgb(187, 222, 243);
 	/* border: 10px solid red; */
-	/* border-top: 10px solid blue; */
-	border-radius: 40%;
-	width: 35px;
-	height: 35px;
-	animation: spin 1.2s linear infinite;
+	border-top: 10px solid blue;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	animation: spin 1s linear infinite;
 	align-self: center;
 	margin: 0 auto;
+	margin-top: 25px;
 }
 
 @keyframes spin {

@@ -73,3 +73,17 @@
 	font-size: 17px;
 	font-family: "Kumbh Sans", sans-serif;
 }
+
+.noComments {
+	font-size: 17px;
+	font-family: "Kumbh Sans", sans-serif;
+}
+
+.notClickable {
+	cursor: default;
+	pointer-events: none;
+}
+
+.notClickable:hover {
+	text-decoration: none;
+}

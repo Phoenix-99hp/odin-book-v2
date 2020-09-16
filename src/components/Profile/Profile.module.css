@@ -16,6 +16,8 @@
 	/* width: 60%; */
 	max-width: 524px;
 	width: 100%;
+	overflow-wrap: anywhere;
+	white-space: pre-wrap;
 }
 
 #profileInfo {
@@ -51,6 +53,8 @@
 	padding-bottom: 10px;
 	font-size: 25px;
 	font-family: "Kufam", cursive;
+	overflow-wrap: break-word;
+	white-space: pre-wrap;
 }
 
 .pcContainer {
@@ -175,11 +179,38 @@
 	margin: 0 auto;
 	/* font-weight: bold; */
 	font-family: "Kufam", cursive;
+	overflow-wrap: anywhere;
 }
 
 .kText {
 	font-size: 17px;
 	font-family: "Kumbh Sans", sans-serif;
+}
+
+#noAvatar {
+	height: 60px;
+	width: 60px;
+	color: white;
+	background-color: rgb(37, 37, 37);
+	cursor: pointer;
+	border-radius: 10px;
+	/* margin-right: 2px; */
+}
+
+#noPicture {
+	height: 120px;
+	width: 120px;
+	color: white;
+	background-color: rgb(37, 37, 37);
+	margin: 0 auto;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.notClickable {
+	cursor: default;
 }
 
 @media screen and (max-width: 1000px) {

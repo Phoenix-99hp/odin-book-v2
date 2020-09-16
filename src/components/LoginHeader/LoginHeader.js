@@ -7,7 +7,7 @@ const LoginHeader = () => {
 	return (
 		<div id={styles.headerContainer}>
 			<div id={styles.contentContainer}>
-				<h1 id={styles.heading}>{useSmallHeading ? "OB" : "Odin-Book"}</h1>
+				<h1 id={styles.heading}>{useSmallHeading ? "O-B" : "Odin-Book"}</h1>
 			</div>
 		</div>
 	);

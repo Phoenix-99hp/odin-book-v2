@@ -118,7 +118,6 @@ const DisplayPosts = () => {
 		<div id={styles.profileContainer}>
 			<div id={styles.profileInfo}></div>
 			<div id={styles.container}>
-				{/* <div id={styles.profileContainer}> */}
 				<div id={styles.postContainer}>
 					<h1 id={styles.postsHeading}>Your Custom Feed:</h1>
 					{postsToDisplay[0] ? (
@@ -132,28 +131,30 @@ const DisplayPosts = () => {
 												{post.text}
 											</div>
 											<div className={`${styles.postUser} ${styles.space}`}>
-												<img
-													onClick={(e) => {
-														handleSetProfile(
-															e.target.nextElementSibling.textContent
-														);
-														// history.push("/profile");
-													}}
-													id={styles.avatar}
-													src={
-														removeAvatar
-															? ""
-															: "data:image/jpeg;base64," +
-															  btoa(
-																	String.fromCharCode(
-																		...new Uint8Array(
-																			post.user.avatar.data.data
+												{post.user.avatar ? (
+													<img
+														onClick={(e) => {
+															handleSetProfile(
+																e.target.nextElementSibling.textContent
+															);
+														}}
+														id={styles.avatar}
+														src={
+															removeAvatar
+																? ""
+																: "data:image/jpeg;base64," +
+																  btoa(
+																		String.fromCharCode(
+																			...new Uint8Array(
+																				post.user.avatar.data.data
+																			)
 																		)
-																		// profile
-																	)
-															  )
-													}
-												/>
+																  )
+														}
+													/>
+												) : (
+													<div id={styles.noAvatar}>No Avatar</div>
+												)}
 												<button
 													onClick={(e) =>
 														handleSetProfile(e.target.textContent)
@@ -170,7 +171,7 @@ const DisplayPosts = () => {
 										</div>
 									</div>
 									<Comments
-										// setAlreadySentFr={setAlreadySentFr}
+										clickableUser={true}
 										setPostsToDisplay={setPostsToDisplay}
 										post={post}
 									/>
@@ -186,7 +187,6 @@ const DisplayPosts = () => {
 						</div>
 					)}
 				</div>
-				{/* </div> */}
 			</div>
 			<div id={styles.placeholder}></div>
 		</div>
