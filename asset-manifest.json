@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.b715312f.chunk.css",
-    "main.js": "/static/js/main.fbc0562b.chunk.js",
-    "main.js.map": "/static/js/main.fbc0562b.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.cda4822f.js",
-    "runtime-main.js.map": "/static/js/runtime-main.cda4822f.js.map",
-    "static/js/2.66fdf484.chunk.js": "/static/js/2.66fdf484.chunk.js",
-    "static/js/2.66fdf484.chunk.js.map": "/static/js/2.66fdf484.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.44f0fe753d7034cdf0115f5fefa4e605.js": "/precache-manifest.44f0fe753d7034cdf0115f5fefa4e605.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.b715312f.chunk.css.map": "/static/css/main.b715312f.chunk.css.map",
-    "static/js/2.66fdf484.chunk.js.LICENSE.txt": "/static/js/2.66fdf484.chunk.js.LICENSE.txt",
-    "static/media/LoginLayout.module.css": "/static/media/white-waves.a06a3248.png"
+    "main.css": "/odin-book-v2/static/css/main.899af62b.chunk.css",
+    "main.js": "/odin-book-v2/static/js/main.f37dd128.chunk.js",
+    "main.js.map": "/odin-book-v2/static/js/main.f37dd128.chunk.js.map",
+    "runtime-main.js": "/odin-book-v2/static/js/runtime-main.8b5a1759.js",
+    "runtime-main.js.map": "/odin-book-v2/static/js/runtime-main.8b5a1759.js.map",
+    "static/js/2.66fdf484.chunk.js": "/odin-book-v2/static/js/2.66fdf484.chunk.js",
+    "static/js/2.66fdf484.chunk.js.map": "/odin-book-v2/static/js/2.66fdf484.chunk.js.map",
+    "index.html": "/odin-book-v2/index.html",
+    "precache-manifest.7b98c42cee8e3ad21155622605496068.js": "/odin-book-v2/precache-manifest.7b98c42cee8e3ad21155622605496068.js",
+    "service-worker.js": "/odin-book-v2/service-worker.js",
+    "static/css/main.899af62b.chunk.css.map": "/odin-book-v2/static/css/main.899af62b.chunk.css.map",
+    "static/js/2.66fdf484.chunk.js.LICENSE.txt": "/odin-book-v2/static/js/2.66fdf484.chunk.js.LICENSE.txt",
+    "static/media/LoginLayout.module.css": "/odin-book-v2/static/media/white-waves.a06a3248.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.cda4822f.js",
+    "static/js/runtime-main.8b5a1759.js",
     "static/js/2.66fdf484.chunk.js",
-    "static/css/main.b715312f.chunk.css",
-    "static/js/main.fbc0562b.chunk.js"
+    "static/css/main.899af62b.chunk.css",
+    "static/js/main.f37dd128.chunk.js"
   ]
 }
