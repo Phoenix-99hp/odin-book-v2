@@ -91,7 +91,7 @@ export const isLoggedIn = () => {
 export const logout = () => {
 	if (isBrowser()) {
 		window.sessionStorage.clear();
-		window.location.href = "/";
+		window.location.href = "/odin-book-v2";
 	} else {
 		return null;
 	}
