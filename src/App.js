@@ -2,7 +2,7 @@ import React from "react";
 import DashboardPage from "./pages/DashboardPage.js";
 import LoginPage from "./pages/LoginPage.js";
 import SignUpPage from "./pages/SignUpPage.js";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import FrViewPage from "./pages/FrViewPage.js";
 import FrSendPage from "./pages/FrSendPage.js";
 import PostPage from "./pages/PostPage.js";
@@ -13,7 +13,7 @@ import ErrorPage from "./pages/Error/ErrorPage.js";
 
 function App() {
 	return (
-		<Router>
+		<Router basename="/odin-book-v2">
 			<div className="App">
 				<Switch>
 					<Route exact path="/" component={LoginPage} />
