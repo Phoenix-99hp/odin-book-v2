@@ -160,6 +160,11 @@
 }
 
 #noAvatar {
+	display: flex;
+	justify-content: center;
+	border-radius: 10px;
+	cursor: pointer;
+	align-items: center;
 	height: 60px;
 	width: 60px;
 	color: white;

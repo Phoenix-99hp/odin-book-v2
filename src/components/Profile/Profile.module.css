@@ -187,11 +187,14 @@
 	font-family: "Kumbh Sans", sans-serif;
 }
 
-#noAvatar {
+.noAvatar {
 	height: 60px;
 	width: 60px;
 	color: white;
 	background-color: rgb(37, 37, 37);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	cursor: pointer;
 	border-radius: 10px;
 	/* margin-right: 2px; */
@@ -211,6 +214,7 @@
 
 .notClickable {
 	cursor: default;
+	pointer-events: none;
 }
 
 @media screen and (max-width: 1000px) {

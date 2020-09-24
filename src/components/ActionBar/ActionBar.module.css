@@ -50,29 +50,16 @@
 	position: absolute;
 	background-color: red;
 	color: white;
-	/* font-size: 16px; */
-	border-radius: 50%;
-	width: 18px;
-	height: 18px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	right: 4px;
-	z-index: 99;
-	top: -8px;
-
 	width: 16px;
 	height: 16px;
-	/* padding-right: 1px; */
-	/* padding-bottom: 1px; */
 	font: 400 13.3333px Arial;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	right: 2px;
+	padding-right: 1px;
+	right: 3px;
 	z-index: 99;
-	top: -5px;
-	/* margin: 0 auto; */
+	top: -6px;
 }
 
 #friendRequestsBtn {

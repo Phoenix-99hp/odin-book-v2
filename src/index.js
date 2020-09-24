@@ -7,6 +7,7 @@ import { PostContextProvider } from "./contexts/PostContext.js";
 import * as serviceWorker from "./serviceWorker";
 import { DropdownContextProvider } from "./contexts/DropdownContext";
 import { ErrorContextProvider } from "./contexts/ErrorContext";
+// import { CommentSpinnerContextProvider } from "./contexts/CommentSpinnerContext";
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -14,7 +15,9 @@ ReactDOM.render(
 			<ErrorContextProvider>
 				<DropdownContextProvider>
 					<PostContextProvider>
+						{/* <CommentSpinnerContextProvider> */}
 						<App />
+						{/* </CommentSpinnerContextProvider> */}
 					</PostContextProvider>
 				</DropdownContextProvider>
 			</ErrorContextProvider>

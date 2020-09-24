@@ -24,9 +24,12 @@ const ActionBar = () => {
 				id={styles.userListBtn}
 				className={styles.btn}
 				onClick={() => {
-					dispatch(setProfile(user));
 					setProfileStorage(user);
-					history.push("/profile");
+					if (window.location.pathname === "/profile") {
+						window.location.reload();
+					} else {
+						history.push("/profile");
+					}
 				}}
 			>
 				Profile

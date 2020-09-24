@@ -138,19 +138,4 @@ const Login = () => {
 	);
 };
 
-// function mapStateToProps(state) {
-// 	const { selectedUser } = state;
-// 	// , selectedIdentifier } = state;
-// 	// const { fetching, data } = dataByIdentifier[selectIdentifier] || {
-// 	// 	fetching: true,
-// 	// 	data: [],
-// 	// };
-
-// 	return {
-// 		selectedUser,
-// 		// data,
-// 		// fetching,
-// 	};
-// }
-
 export default Login;

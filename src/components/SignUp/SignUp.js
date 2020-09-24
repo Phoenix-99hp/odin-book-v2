@@ -82,7 +82,6 @@ const SignUp = () => {
 							name="avatar"
 							type="file"
 							value={null}
-							// defaultValue={avatarPlaceholderIMG}
 							accept={("image/png", "image/jpeg")}
 						/>
 					</div>
@@ -95,26 +94,9 @@ const SignUp = () => {
 							name="profilePicture"
 							type="file"
 							value={null}
-							// defaultValue={profilePlaceholderIMG}
 							accept={("image/png", "image/jpeg")}
 						/>
 					</div>
-					{/* <div id={styles.noDisplay}>
-							<input
-								id={styles.imageInput}
-								name="profilePlaceholder"
-								type="file"
-								value={profilePlaceholderIMG}
-								accept={"image/png"}
-							/>
-							<input
-								id={styles.imageInput}
-								name="avatarPlaceholder"
-								type="file"
-								value={avatarPlaceholderIMG}
-								accept={"image/png"}
-							/>
-						</div> */}
 				</div>
 				<button type="submit" id={styles.loginBtn}>
 					Sign Up

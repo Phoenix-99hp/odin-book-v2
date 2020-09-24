@@ -4,15 +4,19 @@ import { PostContext } from "../../contexts/PostContext";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/slices/userSlice";
 import { useHistory } from "react-router-dom";
+import { ErrorContext } from "../../contexts/ErrorContext";
+// import { CommentSpinnerContext } from "../../contexts/CommentSpinnerContext";
 
 const Like = ({ count, post }) => {
+	const { setMessage } = useContext(ErrorContext);
 	const user = useSelector(selectUser);
 	const history = useHistory();
 	const [likeCount, setLikeCount] = useState(count);
 	const [userLiked, setUserLiked] = useState(false);
 	const { postId, setPost } = useContext(PostContext);
-	const [spinner, setSpinner] = useState(false);
-	const [comments, showComments] = useState(false);
+	// const [spinner, setSpinner] = useState(false);
+	// const [comments, showComments] = useState(false);
+	// const { setCommentSpinner } = useContext(CommentSpinnerContext);
 
 	useEffect(() => {
 		fetch(`http://localhost:3001/api/posts/user-like/${user._id}/${post._id}`, {
@@ -30,7 +34,12 @@ const Like = ({ count, post }) => {
 				}
 			})
 			.catch((error) => {
-				console.log("catch initial", error);
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/dashboard",
+					linkName: "Here's a link to your feed",
+				});
 				history.push("/error");
 			});
 	}, []);
@@ -78,17 +87,21 @@ const Like = ({ count, post }) => {
 				}
 			})
 			.catch((error) => {
-				console.log("catch initial", error);
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/dashboard",
+					linkName: "Here's a link to your feed",
+				});
 				history.push("/error");
 			});
 	};
 
 	const handleShowHideComments = (e) => {
 		if (e.target.textContent === "Show Comments") {
-			// showComments(false);
 			setPost([...postId, post._id]);
+			// setCommentSpinner(true);
 		} else if (e.target.textContent === "Hide Comments") {
-			// showComments(true);
 			setPost(postId.filter((val, index) => val !== post._id));
 		}
 	};

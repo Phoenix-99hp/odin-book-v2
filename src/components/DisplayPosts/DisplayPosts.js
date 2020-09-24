@@ -9,8 +9,10 @@ import { setProfile } from "../../redux/slices/profileSlice";
 import { setProfileStorage } from "../../services/auth";
 import { useHistory } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import { ErrorContext } from "../../contexts/ErrorContext";
 
 const DisplayPosts = () => {
+	const { setMessage } = useContext(ErrorContext);
 	const user = useSelector(selectUser);
 	const dispatch = useDispatch();
 	const history = useHistory();
@@ -28,19 +30,25 @@ const DisplayPosts = () => {
 			})
 			.then((response) => {
 				if (response) {
-					console.log(response);
+					console.log(response, "POSTS");
 					setPostsToDisplay(response);
 				} else {
 					console.log("no posts to display");
 				}
 			})
 			.catch((error) => {
-				console.log("catch initial", error);
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/dashboard",
+					linkName: "Here's a link to your feed",
+				});
 				history.push("/error");
 			});
 	}, []);
 
 	const loadFunc = () => {
+		console.log("LOAD", postsToDisplay[0]);
 		if (postsToDisplay[0]) {
 			fetch(
 				`http://localhost:3001/api/posts/more/${user._id}/${
@@ -55,17 +63,20 @@ const DisplayPosts = () => {
 					return res.json();
 				})
 				.then((response) => {
+					console.log("RES", response);
 					if (response) {
-						if (response.hasMore >= 10) {
+						if (response.hasMore > 0) {
 							setPostsToDisplay([
 								...postsToDisplay,
 								...response.additionalPosts,
 							]);
+							console.log(response.additionalPosts, "POSTS ADD1");
 						} else if (response.additionalPosts[0]) {
 							setPostsToDisplay([
 								...postsToDisplay,
 								...response.additionalPosts,
 							]);
+							console.log(response.additionalPosts, "POSTS ADD2");
 							setHasMore(false);
 						}
 					} else {
@@ -74,7 +85,12 @@ const DisplayPosts = () => {
 					}
 				})
 				.catch((error) => {
-					console.log("catch load func", error);
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/dashboard",
+						linkName: "Here's a link to your feed",
+					});
 					history.push("/error");
 				});
 		}
@@ -94,11 +110,21 @@ const DisplayPosts = () => {
 					setProfileStorage(response);
 					history.push("/profile");
 				} else {
-					console.log("error");
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/dashboard",
+						linkName: "Here's a link to your feed",
+					});
 				}
 			})
 			.catch((error) => {
-				console.log("catch profile", error);
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/dashboard",
+					linkName: "Here's a link to your feed",
+				});
 				history.push("/error");
 			});
 	};
@@ -153,7 +179,16 @@ const DisplayPosts = () => {
 														}
 													/>
 												) : (
-													<div id={styles.noAvatar}>No Avatar</div>
+													<div
+														onClick={(e) => {
+															handleSetProfile(
+																e.target.nextElementSibling.textContent
+															);
+														}}
+														id={styles.noAvatar}
+													>
+														No Avatar
+													</div>
 												)}
 												<button
 													onClick={(e) =>
@@ -171,7 +206,8 @@ const DisplayPosts = () => {
 										</div>
 									</div>
 									<Comments
-										clickableUser={true}
+										page={"dashboard"}
+										// clickableUser={true}
 										setPostsToDisplay={setPostsToDisplay}
 										post={post}
 									/>

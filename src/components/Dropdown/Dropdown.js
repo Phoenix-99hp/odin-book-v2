@@ -4,10 +4,12 @@ import DropdownData from "./DropdownData.js";
 import styles from "./Dropdown.module.css";
 import { useSelector } from "react-redux";
 import { selectUser, setFriendRequests } from "../../redux/slices/userSlice";
+import { useHistory } from "react-router-dom";
 
 const Dropdown = () => {
 	const user = useSelector(selectUser);
 	const [isInitiated, setIsInitiated] = useState(false);
+	const history = useHistory();
 
 	return (
 		<div
@@ -33,7 +35,11 @@ const Dropdown = () => {
 				{DropdownData.map((item, index) => {
 					if (index === 3) {
 						return (
-							<div className={styles.dropdownItem} key={index}>
+							<div
+								onClick={() => history.push(item.href)}
+								className={styles.dropdownItem}
+								key={index}
+							>
 								<Link
 									name={item.name}
 									click={item.click}
@@ -44,7 +50,11 @@ const Dropdown = () => {
 						);
 					} else {
 						return (
-							<div className={styles.dropdownItem} key={index}>
+							<div
+								onClick={() => history.push(item.href)}
+								className={styles.dropdownItem}
+								key={index}
+							>
 								<Link
 									name={item.name}
 									click={item.click}

@@ -1,20 +1,21 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./Profile.module.css";
 import Comments from "../Comments/Comments.js";
 import Like from "../Like/Like.js";
 import moment from "moment";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/slices/userSlice";
-import { selectProfile, setProfile } from "../../redux/slices/profileSlice";
+import { selectProfile } from "../../redux/slices/profileSlice";
 import { useHistory } from "react-router-dom";
 import { setProfileStorage } from "../../services/auth";
 import { useMediaQuery } from "react-responsive";
+import { ErrorContext } from "../../contexts/ErrorContext";
 
 const Profile = () => {
+	const { setMessage } = useContext(ErrorContext);
 	const user = useSelector(selectUser);
 	const profile = useSelector(selectProfile);
 	const history = useHistory();
-	const dispatch = useDispatch();
 	const [alreadySentFr, setAlreadySentFr] = useState(null);
 	const [postsToDisplay, setPostsToDisplay] = useState([]);
 	const [hasMore, setHasMore] = useState(true);
@@ -41,6 +42,12 @@ const Profile = () => {
 						setAlreadySentFr("null");
 					}
 				} else {
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/dashboard",
+						linkName: "Here's a link to your feed",
+					});
 					history.push("/error");
 				}
 			})
@@ -59,21 +66,18 @@ const Profile = () => {
 				return res.json();
 			})
 			.then((response) => {
-				// if (response) {
-				// 	if (response[0]) {
-				// 		console.log("USERNAME:", profile.username);
-				// 		setPostsToDisplay(response);
-				// 	}
-				// } else {
-				// 	history.push("/error");
-				// }
 				setPostsToDisplay(response);
 			})
 			.catch((error) => {
-				console.log("catch", error);
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/dashboard",
+					linkName: "Here's a link to your feed",
+				});
 				history.push("/error");
 			});
-	}, [profile]);
+	}, []);
 
 	const handleSetProfile = (username) => {
 		fetch(`http://localhost:3001/api/profile/${username}`, {
@@ -85,16 +89,25 @@ const Profile = () => {
 			})
 			.then((response) => {
 				if (response) {
-					dispatch(setProfile(response));
 					setProfileStorage(response);
-					console.log(profile, "PROFILE");
-					// setToggleShouldUpdate(!toggleShouldUpdate);
+					window.location.reload();
 				} else {
-					console.log("error");
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/dashboard",
+						linkName: "Here's a link to your feed",
+					});
+					history.push("/error");
 				}
 			})
 			.catch((error) => {
-				console.log("catch profile", error);
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/dashboard",
+					linkName: "Here's a link to your feed",
+				});
 				history.push("/error");
 			});
 	};
@@ -102,7 +115,7 @@ const Profile = () => {
 	const loadFunc = () => {
 		if (postsToDisplay[0]) {
 			fetch(
-				`http://localhost:3001/api/posts/more/${profile.username}/${
+				`http://localhost:3001/api/posts/user/more/${profile.username}/${
 					postsToDisplay[postsToDisplay.length - 1]._id
 				}`,
 				{
@@ -116,7 +129,7 @@ const Profile = () => {
 				.then((response) => {
 					console.log("posts load func response", response);
 					if (response) {
-						if (response.hasMore >= 10) {
+						if (response.hasMore > 0) {
 							setPostsToDisplay([
 								...postsToDisplay,
 								...response.additionalPosts,
@@ -134,7 +147,12 @@ const Profile = () => {
 					}
 				})
 				.catch((error) => {
-					console.log("catch load func", error);
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/dashboard",
+						linkName: "Here's a link to your feed",
+					});
 					history.push("/error");
 				});
 		}
@@ -160,14 +178,24 @@ const Profile = () => {
 			.then((response) => {
 				if (response) {
 					console.log(response);
-					history.push("/dashboard");
+					window.location.reload();
 				} else {
-					console.log("no response");
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/profile",
+						linkName: "Here's a link to the profile you were viewing",
+					});
 					history.push("/error");
 				}
 			})
 			.catch((error) => {
-				console.log("catch", error);
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/profile",
+					linkName: "Here's a link to the profile you were viewing",
+				});
 				history.push("/error");
 			});
 	};
@@ -185,8 +213,10 @@ const Profile = () => {
 	};
 
 	return (
+		// transitioning ? (
+		// 	<TransitionPage />
+		// ) : (
 		<div id={styles.profileContainer}>
-			{/* <div id={styles.profileUser}> */}
 			<div id={styles.profileInfo}>
 				{profile.profilePicture ? (
 					<img
@@ -242,6 +272,11 @@ const Profile = () => {
 											<div className={`${styles.postUser} ${styles.space}`}>
 												{post.user.avatar ? (
 													<img
+														className={
+															profile.username === post.user.username
+																? styles.notClickable
+																: null
+														}
 														onClick={(e) => {
 															handleSetProfile(
 																e.target.nextElementSibling.textContent
@@ -262,14 +297,23 @@ const Profile = () => {
 														}
 													/>
 												) : (
-													<div id={styles.noAvatar}>No Avatar</div>
+													<div
+														id={styles.noAvatar}
+														className={`${styles.noAvatar} ${
+															profile.username === post.user.username
+																? styles.notClickable
+																: null
+														}`}
+													>
+														No Avatar
+													</div>
 												)}
 												<button
 													onClick={(e) =>
 														handleSetProfile(e.target.textContent)
 													}
 													className={`${styles.username} ${
-														user.username === profile.username
+														profile.username === post.user.username
 															? styles.notClickable
 															: null
 													}`}
@@ -284,7 +328,8 @@ const Profile = () => {
 										</div>
 									</div>
 									<Comments
-										clickableUser={false}
+										page={"profile"}
+										// clickableUser={false}
 										setPostsToDisplay={setPostsToDisplay}
 										post={post}
 									/>

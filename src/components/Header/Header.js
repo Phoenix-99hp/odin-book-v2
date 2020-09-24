@@ -41,18 +41,4 @@ const Header = () => {
 	);
 };
 
-// <div
-// 	id={useDropdown ? styles.headerContainerSmall : styles.headerContainer}
-// >
-// 	<div id={styles.contentContainer}>
-// 		<div className={styles.placeholder}></div>
-// 		<h1 id={useDropdown ? styles.headingSmall : styles.heading}>
-// 			Odin-Book
-// 		</h1>
-// 		<div className={styles.placeholder}>
-// 			{useDropdown ? <Dropdown /> : <ActionBar />}
-// 		</div>
-// 	</div>
-// </div>
-
 export default Header;

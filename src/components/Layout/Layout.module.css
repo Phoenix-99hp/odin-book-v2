@@ -152,6 +152,14 @@ main {
 	padding-top: 100px;
 }
 
+footer {
+	flex: 0 1 50px;
+	line-height: 53px;
+	font-size: 17px;
+	font-family: "Kumbh Sans", sans-serif;
+	color: black;
+}
+
 #changeOpacity {
 	opacity: 1;
 }

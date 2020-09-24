@@ -2,14 +2,15 @@ import React, { useEffect, useState, useContext } from "react";
 import styles from "./UserList.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser, setUser } from "../../redux/slices/userSlice";
-import { selectProfile, setProfile } from "../../redux/slices/profileSlice";
+import { setProfile } from "../../redux/slices/profileSlice";
 import { setUserStorage, setProfileStorage } from "../../services/auth";
 import { useHistory } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import { ErrorContext } from "../../contexts/ErrorContext";
 
 const UserList = () => {
 	const user = useSelector(selectUser);
-	const profile = useSelector(selectProfile);
+	const { setMessage } = useContext(ErrorContext);
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const [users, setUsers] = useState([]);
@@ -29,13 +30,15 @@ const UserList = () => {
 					setUsers(response);
 				} else {
 					console.log("no response");
-					// window.location.href = "/error";
-					history.push("/error");
 				}
 			})
 			.catch((error) => {
-				console.log("catch", error);
-				// window.location.href = "/error";
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/dashboard",
+					linkName: "Here's a link to your feed",
+				});
 				history.push("/error");
 			});
 	}, []);
@@ -61,16 +64,23 @@ const UserList = () => {
 					console.log(response);
 					dispatch(setUser(response));
 					setUserStorage(response);
-					// window.location.reload();
 				} else {
-					console.log("no response");
-					// window.location.href = "/error";
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/user-list",
+						linkName: "Try Again",
+					});
 					history.push("/error");
 				}
 			})
 			.catch((error) => {
-				console.log("catch", error);
-				// window.location.href = "/error";
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/user-list",
+					linkName: "Try Again",
+				});
 				history.push("/error");
 			});
 	};
@@ -98,14 +108,22 @@ const UserList = () => {
 					setUserStorage(response);
 					// window.location.reload();
 				} else {
-					console.log("no response");
-					// window.location.href = "/error";
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/user-list",
+						linkName: "Try Again",
+					});
 					history.push("/error");
 				}
 			})
 			.catch((error) => {
-				console.log("catch", error);
-				// window.location.href = "/error";
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/user-list",
+					linkName: "Try Again",
+				});
 				history.push("/error");
 			});
 	};
@@ -133,17 +151,23 @@ const UserList = () => {
 				if (response) {
 					console.log(response);
 					window.location.reload();
-					//   navigate("/dashboard")
-					// window.location.reload();
 				} else {
-					console.log("no response");
-					// window.location.href = "/error";
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/user-list",
+						linkName: "Try Again",
+					});
 					history.push("/error");
 				}
 			})
 			.catch((error) => {
-				console.log("catch", error);
-				// window.location.href = "/error";
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/user-list",
+					linkName: "Try Again",
+				});
 				history.push("/error");
 			});
 	};
@@ -162,19 +186,26 @@ const UserList = () => {
 			.then((response) => {
 				if (response) {
 					console.log(response);
-					dispatch(setUser(response));
+					// dispatch(setUser(response));
 					setUserStorage(response);
 					window.location.reload();
-					// setUsers(response);
 				} else {
-					console.log("no response");
-					// window.location.href = "/error";
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/user-list",
+						linkName: "Try Again",
+					});
 					history.push("/error");
 				}
 			})
 			.catch((error) => {
-				console.log("catch", error);
-				// window.location.href = "/error";
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/user-list",
+					linkName: "Try Again",
+				});
 				history.push("/error");
 			});
 	};
@@ -192,13 +223,22 @@ const UserList = () => {
 					setProfileStorage(response);
 					dispatch(setProfile(response));
 				} else {
-					// window.location.href = "/error";
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/user-list",
+						linkName: "Try Again",
+					});
 					history.push("/error");
 				}
 			})
 			.catch((error) => {
-				console.log("catch profile", error);
-				// window.location.href = "/error";
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/user-list",
+					linkName: "Try Again",
+				});
 				history.push("/error");
 			});
 	};
@@ -236,7 +276,13 @@ const UserList = () => {
 										}
 									/>
 								) : (
-									<div id={removeAvatar ? styles.hide : styles.noAvatar}>
+									<div
+										id={removeAvatar ? styles.hide : styles.noAvatar}
+										onClick={(e) => {
+											handleSetProfile(e.target.nextElementSibling.textContent);
+											history.push("/profile");
+										}}
+									>
 										No Avatar
 									</div>
 								)}

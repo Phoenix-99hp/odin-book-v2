@@ -158,13 +158,10 @@ main {
 
 footer {
 	flex: 0 1 50px;
-	background: rgb(187, 222, 243);
-	/* justify-content: center;
-	align-items: center; */
 	line-height: 53px;
-	border-top: 2px solid blue;
 	font-size: 17px;
 	font-family: "Kumbh Sans", sans-serif;
+	color: black;
 }
 
 #changeOpacity {

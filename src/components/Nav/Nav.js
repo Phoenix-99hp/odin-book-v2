@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { setProfileStorage } from "../../services/auth";
 import { selectUser } from "../../redux/slices/userSlice.js";
 import styles from "./Nav.module.css";
@@ -18,6 +18,7 @@ const Nav = () => {
 				onClick={() => {
 					dispatch(setProfile(user));
 					setProfileStorage(user);
+					console.log(window.location.pathname);
 					history.push("/profile");
 				}}
 			>

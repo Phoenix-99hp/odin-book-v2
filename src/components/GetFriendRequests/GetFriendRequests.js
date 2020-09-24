@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styles from "./GetFriendRequests.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser, setUser } from "../../redux/slices/userSlice";
@@ -7,8 +7,10 @@ import { setUserStorage, setProfileStorage } from "../../services/auth";
 import { useHistory } from "react-router-dom";
 import Link from "../Link/Link.js";
 import { useMediaQuery } from "react-responsive";
+import { ErrorContext } from "../../contexts/ErrorContext";
 
 const GetFriendRequests = () => {
+	const { setMessage } = useContext(ErrorContext);
 	const user = useSelector(selectUser);
 	const dispatch = useDispatch();
 	const history = useHistory();
@@ -37,16 +39,23 @@ const GetFriendRequests = () => {
 					dispatch(setUser(response));
 					setUserStorage(response);
 					window.location.reload();
-					// setFrs(response.friendRequests);
-					// window.location.reload();
-					// setFrs(response);
 				} else {
-					console.log("no response");
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/fr-view",
+						linkName: "Try Again",
+					});
 					history.push("/error");
 				}
 			})
 			.catch((error) => {
-				console.log("catch", error);
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/fr-view",
+					linkName: "Try Again",
+				});
 				history.push("/error");
 			});
 	};
@@ -74,12 +83,22 @@ const GetFriendRequests = () => {
 					setUserStorage(response);
 					window.location.reload();
 				} else {
-					console.log("no response");
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/fr-view",
+						linkName: "Try Again",
+					});
 					history.push("/error");
 				}
 			})
 			.catch((error) => {
-				console.log("catch", error);
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/fr-view",
+					linkName: "Try Again",
+				});
 				history.push("/error");
 			});
 	};
@@ -97,11 +116,16 @@ const GetFriendRequests = () => {
 					console.log(response);
 					setFrs(response);
 				} else {
-					console.log("no response");
+					return;
 				}
 			})
 			.catch((error) => {
-				console.log("catch", error);
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/fr-view",
+					linkName: "View Friend Requests",
+				});
 				history.push("/error");
 			});
 	}, []);
@@ -120,11 +144,21 @@ const GetFriendRequests = () => {
 					setProfileStorage(response);
 					history.push("/profile");
 				} else {
-					console.log("error");
+					setMessage({
+						title: "Something went wrong",
+						body: "It's not immediately clear what happened",
+						href: "/fr-view",
+						linkName: "View Friend Requests",
+					});
 				}
 			})
 			.catch((error) => {
-				console.log("catch profile", error);
+				setMessage({
+					title: "Something went wrong",
+					body: "It's not immediately clear what happened",
+					href: "/fr-view",
+					linkName: "View Friend Requests",
+				});
 				history.push("/error");
 			});
 	};

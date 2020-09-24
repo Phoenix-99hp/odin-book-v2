@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../Header/Header.js";
 import styles from "./Layout.module.css";
 import TransitionPage from "../../pages/TransitionPage.js";
-import { getTransitionState, setTransitionStorage } from "../../services/auth";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	selectTransitioning,
@@ -11,7 +10,6 @@ import {
 import { selectShouldTransition } from "../../redux/slices/shouldTransitionSlice";
 
 const Layout = ({ children }) => {
-	// setTransitionStorage(true);
 	const dispatch = useDispatch();
 	const transitioning = useSelector(selectTransitioning);
 	const shouldTransition = useSelector(selectShouldTransition);
