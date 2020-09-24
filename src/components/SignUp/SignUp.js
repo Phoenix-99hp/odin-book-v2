@@ -9,7 +9,7 @@ const SignUp = () => {
 	const history = useHistory();
 
 	const handleFormSubmit = (e) => {
-		const url = "http://localhost:3001/api/signup";
+		const url = "https://salty-mesa-94052.herokuapp.com/api/signup";
 		const request = new XMLHttpRequest();
 
 		request.open("POST", url, true);

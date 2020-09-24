@@ -29,7 +29,7 @@ const CommentForm = () => {
 			user: user._id,
 		};
 		if (validate(commentData)) {
-			fetch("http://localhost:3001/api/new-comment", {
+			fetch("https://salty-mesa-94052.herokuapp.com/api/new-comment", {
 				method: "POST",
 				mode: "cors",
 				headers: {

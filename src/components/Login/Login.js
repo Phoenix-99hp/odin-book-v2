@@ -65,7 +65,7 @@ const Login = () => {
 	const loginReq = (e) => {
 		e.preventDefault();
 		if (validate(userLogin)) {
-			fetch("http://localhost:3001/api/login", {
+			fetch("https://salty-mesa-94052.herokuapp.com/api/login", {
 				method: "POST",
 				mode: "cors",
 				headers: {

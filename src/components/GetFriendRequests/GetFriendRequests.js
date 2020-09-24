@@ -22,14 +22,17 @@ const GetFriendRequests = () => {
 		const requestToAccept = {
 			request: e.target.parentElement.previousElementSibling.textContent,
 		};
-		fetch(`http://localhost:3001/api/friend-request/${user._id}/accept`, {
-			method: "POST",
-			mode: "cors",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(requestToAccept),
-		})
+		fetch(
+			`https://salty-mesa-94052.herokuapp.com/api/friend-request/${user._id}/accept`,
+			{
+				method: "POST",
+				mode: "cors",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(requestToAccept),
+			}
+		)
 			.then((res) => {
 				return res.json();
 			})
@@ -65,14 +68,17 @@ const GetFriendRequests = () => {
 		const requestToDecline = {
 			request: e.target.parentElement.previousElementSibling.textContent,
 		};
-		fetch(`http://localhost:3001/api/friend-request/${user._id}/decline`, {
-			method: "POST",
-			mode: "cors",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(requestToDecline),
-		})
+		fetch(
+			`https://salty-mesa-94052.herokuapp.com/api/friend-request/${user._id}/decline`,
+			{
+				method: "POST",
+				mode: "cors",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(requestToDecline),
+			}
+		)
 			.then((res) => {
 				return res.json();
 			})
@@ -104,10 +110,13 @@ const GetFriendRequests = () => {
 	};
 
 	useEffect(() => {
-		fetch(`http://localhost:3001/api/friend-request/${user._id}`, {
-			method: "GET",
-			mode: "cors",
-		})
+		fetch(
+			`https://salty-mesa-94052.herokuapp.com/api/friend-request/${user._id}`,
+			{
+				method: "GET",
+				mode: "cors",
+			}
+		)
 			.then((res) => {
 				return res.json();
 			})
@@ -131,7 +140,7 @@ const GetFriendRequests = () => {
 	}, []);
 
 	const handleSetProfile = (username) => {
-		fetch(`http://localhost:3001/api/profile/${username}`, {
+		fetch(`https://salty-mesa-94052.herokuapp.com/api/profile/${username}`, {
 			method: "GET",
 			mode: "cors",
 		})

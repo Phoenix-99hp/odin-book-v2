@@ -17,7 +17,7 @@ const UserList = () => {
 	const removeAvatar = useMediaQuery({ query: "(max-width: 515px)" });
 
 	useEffect(() => {
-		fetch(`http://localhost:3001/api/all-users/${user._id}`, {
+		fetch(`https://salty-mesa-94052.herokuapp.com/api/all-users/${user._id}`, {
 			method: "GET",
 			mode: "cors",
 		})
@@ -48,14 +48,17 @@ const UserList = () => {
 		const requestToAccept = {
 			request: users[e.target.parentElement.dataset.index].username,
 		};
-		fetch(`http://localhost:3001/api/friend-request/${user._id}/accept`, {
-			method: "POST",
-			mode: "cors",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(requestToAccept),
-		})
+		fetch(
+			`https://salty-mesa-94052.herokuapp.com/api/friend-request/${user._id}/accept`,
+			{
+				method: "POST",
+				mode: "cors",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(requestToAccept),
+			}
+		)
 			.then((res) => {
 				return res.json();
 			})
@@ -90,14 +93,17 @@ const UserList = () => {
 		const requestToDecline = {
 			request: users[e.target.parentElement.dataset.index].username,
 		};
-		fetch(`http://localhost:3001/api/friend-request/${user._id}/decline`, {
-			method: "POST",
-			mode: "cors",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(requestToDecline),
-		})
+		fetch(
+			`https://salty-mesa-94052.herokuapp.com/api/friend-request/${user._id}/decline`,
+			{
+				method: "POST",
+				mode: "cors",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(requestToDecline),
+			}
+		)
 			.then((res) => {
 				return res.json();
 			})
@@ -136,7 +142,7 @@ const UserList = () => {
 			username: friendReqUsername,
 			currentUser: user._id,
 		};
-		fetch("http://localhost:3001/api/friend-request", {
+		fetch("https://salty-mesa-94052.herokuapp.com/api/friend-request", {
 			method: "POST",
 			mode: "cors",
 			headers: {
@@ -176,10 +182,13 @@ const UserList = () => {
 		e.preventDefault();
 		const friendToRemove =
 			e.target.parentElement.previousElementSibling.textContent;
-		fetch(`http://localhost:3001/api/friends/${user._id}/${friendToRemove}/`, {
-			method: "PUT",
-			mode: "cors",
-		})
+		fetch(
+			`https://salty-mesa-94052.herokuapp.com/api/friends/${user._id}/${friendToRemove}/`,
+			{
+				method: "PUT",
+				mode: "cors",
+			}
+		)
 			.then((res) => {
 				return res.json();
 			})
@@ -211,7 +220,7 @@ const UserList = () => {
 	};
 
 	const handleSetProfile = (username) => {
-		fetch(`http://localhost:3001/api/profile/${username}`, {
+		fetch(`https://salty-mesa-94052.herokuapp.com/api/profile/${username}`, {
 			method: "GET",
 			mode: "cors",
 		})

@@ -26,7 +26,7 @@ const PostForm = () => {
 			user: user._id,
 		};
 		if (validate(postData)) {
-			fetch("http://localhost:3001/api/new-post", {
+			fetch("https://salty-mesa-94052.herokuapp.com/api/new-post", {
 				method: "POST",
 				mode: "cors",
 				headers: {

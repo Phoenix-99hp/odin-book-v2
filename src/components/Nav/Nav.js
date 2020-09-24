@@ -18,7 +18,6 @@ const Nav = () => {
 				onClick={() => {
 					dispatch(setProfile(user));
 					setProfileStorage(user);
-					console.log(window.location.pathname);
 					history.push("/profile");
 				}}
 			>

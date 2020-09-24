@@ -23,7 +23,7 @@ const Profile = () => {
 
 	useEffect(() => {
 		fetch(
-			`http://localhost:3001/api/friend-request/friends/${profile.username}`,
+			`https://salty-mesa-94052.herokuapp.com/api/friend-request/friends/${profile.username}`,
 			{
 				method: "GET",
 				mode: "cors",
@@ -58,10 +58,13 @@ const Profile = () => {
 	}, [profile, user._id]);
 
 	useEffect(() => {
-		fetch(`http://localhost:3001/api/posts/user/${profile.username}`, {
-			method: "GET",
-			mode: "cors",
-		})
+		fetch(
+			`https://salty-mesa-94052.herokuapp.com/api/posts/user/${profile.username}`,
+			{
+				method: "GET",
+				mode: "cors",
+			}
+		)
 			.then((res) => {
 				return res.json();
 			})
@@ -80,7 +83,7 @@ const Profile = () => {
 	}, []);
 
 	const handleSetProfile = (username) => {
-		fetch(`http://localhost:3001/api/profile/${username}`, {
+		fetch(`https://salty-mesa-94052.herokuapp.com/api/profile/${username}`, {
 			method: "GET",
 			mode: "cors",
 		})
@@ -115,9 +118,9 @@ const Profile = () => {
 	const loadFunc = () => {
 		if (postsToDisplay[0]) {
 			fetch(
-				`http://localhost:3001/api/posts/user/more/${profile.username}/${
-					postsToDisplay[postsToDisplay.length - 1]._id
-				}`,
+				`https://salty-mesa-94052.herokuapp.com/api/posts/user/more/${
+					profile.username
+				}/${postsToDisplay[postsToDisplay.length - 1]._id}`,
 				{
 					method: "GET",
 					mode: "cors",
@@ -164,7 +167,7 @@ const Profile = () => {
 			username: profile.username,
 			currentUser: user._id,
 		};
-		fetch("http://localhost:3001/api/friend-request", {
+		fetch("https://salty-mesa-94052.herokuapp.com/api/friend-request", {
 			method: "POST",
 			mode: "cors",
 			headers: {
