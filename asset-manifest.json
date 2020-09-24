@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/odin-book-v2/static/css/main.899af62b.chunk.css",
-    "main.js": "/odin-book-v2/static/js/main.f37dd128.chunk.js",
-    "main.js.map": "/odin-book-v2/static/js/main.f37dd128.chunk.js.map",
+    "main.js": "/odin-book-v2/static/js/main.0c008336.chunk.js",
+    "main.js.map": "/odin-book-v2/static/js/main.0c008336.chunk.js.map",
     "runtime-main.js": "/odin-book-v2/static/js/runtime-main.8b5a1759.js",
     "runtime-main.js.map": "/odin-book-v2/static/js/runtime-main.8b5a1759.js.map",
     "static/js/2.66fdf484.chunk.js": "/odin-book-v2/static/js/2.66fdf484.chunk.js",
     "static/js/2.66fdf484.chunk.js.map": "/odin-book-v2/static/js/2.66fdf484.chunk.js.map",
     "index.html": "/odin-book-v2/index.html",
-    "precache-manifest.7b98c42cee8e3ad21155622605496068.js": "/odin-book-v2/precache-manifest.7b98c42cee8e3ad21155622605496068.js",
+    "precache-manifest.47154a8b89ee30c27d5f9c4fb9e0b16b.js": "/odin-book-v2/precache-manifest.47154a8b89ee30c27d5f9c4fb9e0b16b.js",
     "service-worker.js": "/odin-book-v2/service-worker.js",
     "static/css/main.899af62b.chunk.css.map": "/odin-book-v2/static/css/main.899af62b.chunk.css.map",
     "static/js/2.66fdf484.chunk.js.LICENSE.txt": "/odin-book-v2/static/js/2.66fdf484.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.8b5a1759.js",
     "static/js/2.66fdf484.chunk.js",
     "static/css/main.899af62b.chunk.css",
-    "static/js/main.f37dd128.chunk.js"
+    "static/js/main.0c008336.chunk.js"
   ]
 }
