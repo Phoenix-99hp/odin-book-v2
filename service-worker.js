@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/odin-book-v2/precache-manifest.b99a834fc36f7a3052103a8970199fd5.js"
+  "/odin-book-v2/precache-manifest.77cf47e905538a769e3350e15b21fa3a.js"
 );
 
 self.addEventListener('message', (event) => {
