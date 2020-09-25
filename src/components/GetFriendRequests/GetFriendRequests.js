@@ -181,7 +181,7 @@ const GetFriendRequests = () => {
 						src={
 							removeAvatar
 								? ""
-								: fr.avatar.data
+								: fr.avatar
 								? "data:image/jpeg;base64," +
 								  btoa(
 										String.fromCharCode(...new Uint8Array(fr.avatar.data.data))
