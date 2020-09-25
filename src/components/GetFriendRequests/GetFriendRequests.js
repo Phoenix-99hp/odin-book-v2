@@ -189,6 +189,17 @@ const GetFriendRequests = () => {
 								: ""
 						}
 					/>
+					: (
+					<div
+						id={removeAvatar ? styles.hide : styles.noAvatar}
+						onClick={(e) => {
+							handleSetProfile(e.target.nextElementSibling.textContent);
+							history.push("/profile");
+						}}
+					>
+						No Avatar
+					</div>
+					)
 					<Link
 						id={styles.frUsername}
 						click={() => handleSetProfile(fr.username)}
