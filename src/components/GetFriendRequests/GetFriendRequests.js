@@ -176,30 +176,31 @@ const GetFriendRequests = () => {
 		frs.map((fr, index) => (
 			<div className={styles.fr} key={index}>
 				<div className={styles.avatarUsername}>
-					<img
-						id={styles.avatar}
-						src={
-							removeAvatar
-								? ""
-								: fr.avatar
-								? "data:image/jpeg;base64," +
-								  btoa(
-										String.fromCharCode(...new Uint8Array(fr.avatar.data.data))
-								  )
-								: ""
-						}
-					/>
-					: (
-					<div
-						id={removeAvatar ? styles.hide : styles.noAvatar}
-						onClick={(e) => {
-							handleSetProfile(e.target.nextElementSibling.textContent);
-							history.push("/profile");
-						}}
-					>
-						No Avatar
-					</div>
-					)
+					{fr.avatar ? (
+						<img
+							id={styles.avatar}
+							src={
+								removeAvatar
+									? ""
+									: "data:image/jpeg;base64," +
+									  btoa(
+											String.fromCharCode(
+												...new Uint8Array(fr.avatar.data.data)
+											)
+									  )
+							}
+						/>
+					) : (
+						<div
+							id={removeAvatar ? styles.hide : styles.noAvatar}
+							onClick={(e) => {
+								handleSetProfile(e.target.nextElementSibling.textContent);
+								history.push("/profile");
+							}}
+						>
+							No Avatar
+						</div>
+					)}
 					<Link
 						id={styles.frUsername}
 						click={() => handleSetProfile(fr.username)}
