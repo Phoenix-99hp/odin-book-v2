@@ -40,7 +40,7 @@ const GetFriendRequests = () => {
 			.then((response) => {
 				if (response) {
 					console.log(response);
-					dispatch(setUser(response));
+					// dispatch(setUser(response));
 					setUserStorage(response);
 					window.location.reload();
 				} else {
@@ -87,7 +87,7 @@ const GetFriendRequests = () => {
 			.then((response) => {
 				if (response) {
 					console.log(response);
-					dispatch(setUser(response));
+					// dispatch(setUser(response));
 					setUserStorage(response);
 					window.location.reload();
 				} else {
