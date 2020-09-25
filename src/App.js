@@ -13,7 +13,7 @@ import ErrorPage from "./pages/Error/ErrorPage.js";
 
 function App() {
 	return (
-		<Router basename="/odin-book-v2">
+		<Router>
 			<div className="App">
 				<Switch>
 					<Route exact path="/" component={LoginPage} />
