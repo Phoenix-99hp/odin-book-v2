@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "92b4a2c395b6f94d7d462caa5300ed24",
+    "revision": "b3403923b1296b4ba078872ca79e4654",
     "url": "/odin-book-v2/index.html"
   },
   {
-    "revision": "11feaa231895045330f9",
-    "url": "/odin-book-v2/static/css/main.899af62b.chunk.css"
+    "revision": "71ff9351e061b6e632b1",
+    "url": "/odin-book-v2/static/css/main.d99a00c2.chunk.css"
   },
   {
-    "revision": "efa35eb8aa881b41657a",
-    "url": "/odin-book-v2/static/js/2.559c6fff.chunk.js"
+    "revision": "24781c2738d4ff5b5998",
+    "url": "/odin-book-v2/static/js/2.a2545411.chunk.js"
   },
   {
     "revision": "ddc260dea7c44235f4d8e919b6e1dd91",
-    "url": "/odin-book-v2/static/js/2.559c6fff.chunk.js.LICENSE.txt"
+    "url": "/odin-book-v2/static/js/2.a2545411.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "11feaa231895045330f9",
-    "url": "/odin-book-v2/static/js/main.d4020730.chunk.js"
+    "revision": "71ff9351e061b6e632b1",
+    "url": "/odin-book-v2/static/js/main.d66e58c4.chunk.js"
   },
   {
     "revision": "7d6ebd9466aa8f021cc9",
