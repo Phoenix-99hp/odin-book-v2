@@ -20,7 +20,8 @@ const GetFriendRequests = () => {
 	const acceptFr = (e) => {
 		e.preventDefault();
 		const requestToAccept = {
-			request: e.target.parentElement.previousElementSibling.textContent,
+			request:
+				e.target.parentElement.previousElementSibling.children[1].textContent,
 		};
 		fetch(
 			`https://salty-mesa-94052.herokuapp.com/api/friend-request/${user._id}/accept`,
@@ -66,7 +67,8 @@ const GetFriendRequests = () => {
 	const declineFr = (e) => {
 		e.preventDefault();
 		const requestToDecline = {
-			request: e.target.parentElement.previousElementSibling.textContent,
+			request:
+				e.target.parentElement.previousElementSibling.children[1].textContent,
 		};
 		fetch(
 			`https://salty-mesa-94052.herokuapp.com/api/friend-request/${user._id}/decline`,
