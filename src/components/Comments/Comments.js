@@ -44,10 +44,10 @@ const Comments = ({ post, clickableUser, page }) => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/odin-book-v2/dashboard",
+						href: "/dashboard",
 						linkName: "Here's a link to your feed",
 					});
-					history.push("/odin-book-v2/error");
+					history.push("/error");
 				}
 			})
 			.catch((error) => {
@@ -55,10 +55,10 @@ const Comments = ({ post, clickableUser, page }) => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/odin-book-v2/dashboard",
+					href: "/dashboard",
 					linkName: "Here's a link to your feed",
 				});
-				history.push("/odin-book-v2/error");
+				history.push("/error");
 			});
 	};
 

@@ -74,7 +74,7 @@ export const setMenu = (selection) =>
 export const handleLogin = (user) => {
 	if (isBrowser()) {
 		setUserStorage(user);
-		window.location.href = "/odin-book-v2/dashboard";
+		window.location.href = "/dashboard";
 	} else {
 		return null;
 	}
@@ -91,7 +91,7 @@ export const isLoggedIn = () => {
 export const logout = () => {
 	if (isBrowser()) {
 		window.sessionStorage.clear();
-		window.location.href = "/odin-book-v2";
+		window.location.href = "/";
 	} else {
 		return null;
 	}

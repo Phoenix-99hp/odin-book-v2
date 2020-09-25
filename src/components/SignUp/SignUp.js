@@ -26,7 +26,7 @@ const SignUp = () => {
 							title: "Something went wrong",
 							body:
 								"Make sure you entered a username and password - each 30 characters or less. If you did, the username you entered is probably already taken",
-							href: "/odin-book-v2/signup",
+							href: "/signup",
 							linkName: "Try Again",
 						});
 						history.push("/error");
@@ -39,7 +39,7 @@ const SignUp = () => {
 			setMessage({
 				title: "Something went wrong",
 				body: "It's not immediately clear what happened",
-				href: "/odin-book-v2/signup",
+				href: "/signup",
 				linkName: "Try Again",
 			});
 			history.push("/error");

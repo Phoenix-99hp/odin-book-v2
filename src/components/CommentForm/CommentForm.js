@@ -47,7 +47,7 @@ const CommentForm = () => {
 						setMessage({
 							title: "Something went wrong",
 							body: "It's not immediately clear what happened",
-							href: "/odin-book-v2/comment",
+							href: "/comment",
 							linkName: "Try Again",
 						});
 						history.push("/error");
@@ -57,7 +57,7 @@ const CommentForm = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/odin-book-v2/comment",
+						href: "/comment",
 						linkName: "Try Again",
 					});
 					history.push("/error");
@@ -66,7 +66,7 @@ const CommentForm = () => {
 			setMessage({
 				title: "Validation failed",
 				body: "Comments must include text which must be 250 characters or less",
-				href: "/odin-book-v2/comment",
+				href: "/comment",
 				linkName: "Try Again",
 			});
 			history.push("/error");

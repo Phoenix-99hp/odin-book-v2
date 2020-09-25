@@ -44,7 +44,7 @@ const PostForm = () => {
 						setMessage({
 							title: "Something went wrong",
 							body: "It's not immediately clear what happened",
-							href: "/odin-book-v2/post",
+							href: "/post",
 							linkName: "Try Again",
 						});
 						history.push("/error");
@@ -55,7 +55,7 @@ const PostForm = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/odin-book-v2/post",
+						href: "/post",
 						linkName: "Try Again",
 					});
 					history.push("/error");
@@ -65,7 +65,7 @@ const PostForm = () => {
 				title: "Validation failed",
 				body:
 					"Posts must include a title and text. The title must be no more than 50 characters and the text must be no more than 500 characters",
-				href: "/odin-book-v2/post",
+				href: "/post",
 				linkName: "Try Again",
 			});
 			history.push("/error");

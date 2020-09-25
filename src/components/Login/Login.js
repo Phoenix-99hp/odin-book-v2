@@ -91,7 +91,7 @@ const Login = () => {
 				title: "Validation failed",
 				body:
 					"The username and password fields must be filled out and no more than 30 characters.",
-				href: "/odin-book-v2",
+				href: "/",
 				linkName: "Try Again",
 			});
 			history.push("/error");
@@ -130,7 +130,7 @@ const Login = () => {
 			</div>
 			<span id={styles.noAccountSpan}>
 				Don't have an account?{" "}
-				<Link id={styles.signUp} to="/odin-book-v2/signup">
+				<Link id={styles.signUp} to="/signup">
 					Sign Up
 				</Link>
 			</span>

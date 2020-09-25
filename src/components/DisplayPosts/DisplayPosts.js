@@ -40,7 +40,7 @@ const DisplayPosts = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/odin-book-v2/dashboard",
+					href: "/dashboard",
 					linkName: "Here's a link to your feed",
 				});
 				history.push("/error");
@@ -88,7 +88,7 @@ const DisplayPosts = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/odin-book-v2/dashboard",
+						href: "/dashboard",
 						linkName: "Here's a link to your feed",
 					});
 					history.push("/error");
@@ -113,7 +113,7 @@ const DisplayPosts = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/odin-book-v2/dashboard",
+						href: "/dashboard",
 						linkName: "Here's a link to your feed",
 					});
 				}
@@ -122,7 +122,7 @@ const DisplayPosts = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/odin-book-v2/dashboard",
+					href: "/dashboard",
 					linkName: "Here's a link to your feed",
 				});
 				history.push("/error");
