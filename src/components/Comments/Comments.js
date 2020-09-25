@@ -47,7 +47,7 @@ const Comments = ({ post, clickableUser, page }) => {
 						href: "/odin-book-v2/dashboard",
 						linkName: "Here's a link to your feed",
 					});
-					history.push("/error");
+					history.push("/odin-book-v2/error");
 				}
 			})
 			.catch((error) => {
@@ -58,7 +58,7 @@ const Comments = ({ post, clickableUser, page }) => {
 					href: "/odin-book-v2/dashboard",
 					linkName: "Here's a link to your feed",
 				});
-				history.push("/error");
+				history.push("/odin-book-v2/error");
 			});
 	};
 

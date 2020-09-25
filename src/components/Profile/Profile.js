@@ -45,7 +45,7 @@ const Profile = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/dashboard",
+						href: "/odin-book-v2/dashboard",
 						linkName: "Here's a link to your feed",
 					});
 					history.push("/error");
@@ -75,7 +75,7 @@ const Profile = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/dashboard",
+					href: "/odin-book-v2/dashboard",
 					linkName: "Here's a link to your feed",
 				});
 				history.push("/error");
@@ -98,7 +98,7 @@ const Profile = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/dashboard",
+						href: "/odin-book-v2/dashboard",
 						linkName: "Here's a link to your feed",
 					});
 					history.push("/error");
@@ -108,7 +108,7 @@ const Profile = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/dashboard",
+					href: "/odin-book-v2/dashboard",
 					linkName: "Here's a link to your feed",
 				});
 				history.push("/error");
@@ -153,7 +153,7 @@ const Profile = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/dashboard",
+						href: "/odin-book-v2/dashboard",
 						linkName: "Here's a link to your feed",
 					});
 					history.push("/error");
@@ -186,7 +186,7 @@ const Profile = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/profile",
+						href: "/odin-book-v2/profile",
 						linkName: "Here's a link to the profile you were viewing",
 					});
 					history.push("/error");
@@ -196,7 +196,7 @@ const Profile = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/profile",
+					href: "/odin-book-v2/profile",
 					linkName: "Here's a link to the profile you were viewing",
 				});
 				history.push("/error");

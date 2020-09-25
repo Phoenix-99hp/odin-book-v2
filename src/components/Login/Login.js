@@ -84,7 +84,7 @@ const Login = () => {
 				})
 				.catch((error) => {
 					console.log(error);
-					history.push("/odin-book-v2/error");
+					history.push("/error");
 				});
 		} else {
 			setMessage({
@@ -94,7 +94,7 @@ const Login = () => {
 				href: "/odin-book-v2",
 				linkName: "Try Again",
 			});
-			history.push("/odin-book-v2/error");
+			history.push("/error");
 		}
 	};
 

@@ -46,7 +46,7 @@ const GetFriendRequests = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/fr-view",
+						href: "/odin-book-v2/fr-view",
 						linkName: "Try Again",
 					});
 					history.push("/error");
@@ -56,7 +56,7 @@ const GetFriendRequests = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/fr-view",
+					href: "/odin-book-v2/fr-view",
 					linkName: "Try Again",
 				});
 				history.push("/error");
@@ -92,7 +92,7 @@ const GetFriendRequests = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/fr-view",
+						href: "/odin-book-v2/fr-view",
 						linkName: "Try Again",
 					});
 					history.push("/error");
@@ -102,7 +102,7 @@ const GetFriendRequests = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/fr-view",
+					href: "/odin-book-v2/fr-view",
 					linkName: "Try Again",
 				});
 				history.push("/error");
@@ -132,7 +132,7 @@ const GetFriendRequests = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/fr-view",
+					href: "/odin-book-v2/fr-view",
 					linkName: "View Friend Requests",
 				});
 				history.push("/error");
@@ -156,7 +156,7 @@ const GetFriendRequests = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/fr-view",
+						href: "/odin-book-v2/fr-view",
 						linkName: "View Friend Requests",
 					});
 				}
@@ -165,7 +165,7 @@ const GetFriendRequests = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/fr-view",
+					href: "/odin-book-v2/fr-view",
 					linkName: "View Friend Requests",
 				});
 				history.push("/error");
@@ -181,10 +181,12 @@ const GetFriendRequests = () => {
 						src={
 							removeAvatar
 								? ""
-								: "data:image/jpeg;base64," +
+								: fr.avatar.data
+								? "data:image/jpeg;base64," +
 								  btoa(
 										String.fromCharCode(...new Uint8Array(fr.avatar.data.data))
 								  )
+								: ""
 						}
 					/>
 					<Link

@@ -36,7 +36,7 @@ const UserList = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/dashboard",
+					href: "/odin-book-v2/dashboard",
 					linkName: "Here's a link to your feed",
 				});
 				history.push("/error");
@@ -71,7 +71,7 @@ const UserList = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/user-list",
+						href: "/odin-book-v2/user-list",
 						linkName: "Try Again",
 					});
 					history.push("/error");
@@ -81,7 +81,7 @@ const UserList = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/user-list",
+					href: "/odin-book-v2/user-list",
 					linkName: "Try Again",
 				});
 				history.push("/error");
@@ -117,7 +117,7 @@ const UserList = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/user-list",
+						href: "/odin-book-v2/user-list",
 						linkName: "Try Again",
 					});
 					history.push("/error");
@@ -127,7 +127,7 @@ const UserList = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/user-list",
+					href: "/odin-book-v2/user-list",
 					linkName: "Try Again",
 				});
 				history.push("/error");
@@ -161,7 +161,7 @@ const UserList = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/user-list",
+						href: "/odin-book-v2/user-list",
 						linkName: "Try Again",
 					});
 					history.push("/error");
@@ -171,7 +171,7 @@ const UserList = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/user-list",
+					href: "/odin-book-v2/user-list",
 					linkName: "Try Again",
 				});
 				history.push("/error");
@@ -202,7 +202,7 @@ const UserList = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/user-list",
+						href: "/odin-book-v2/user-list",
 						linkName: "Try Again",
 					});
 					history.push("/error");
@@ -212,7 +212,7 @@ const UserList = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/user-list",
+					href: "/odin-book-v2/user-list",
 					linkName: "Try Again",
 				});
 				history.push("/error");
@@ -235,7 +235,7 @@ const UserList = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/user-list",
+						href: "/odin-book-v2/user-list",
 						linkName: "Try Again",
 					});
 					history.push("/error");
@@ -245,7 +245,7 @@ const UserList = () => {
 				setMessage({
 					title: "Something went wrong",
 					body: "It's not immediately clear what happened",
-					href: "/user-list",
+					href: "/odin-book-v2/user-list",
 					linkName: "Try Again",
 				});
 				history.push("/error");

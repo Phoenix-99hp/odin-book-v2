@@ -47,7 +47,7 @@ const FriendRequestForm = () => {
 							title: "Something went wrong",
 							body:
 								"Make sure you entered an existing username, and that you haven't already sent this user a friend request",
-							href: "/fr-send",
+							href: "/odin-book-v2/fr-send",
 							linkName: "Try Again",
 						});
 						history.push("/error");
@@ -57,7 +57,7 @@ const FriendRequestForm = () => {
 					setMessage({
 						title: "Something went wrong",
 						body: "It's not immediately clear what happened",
-						href: "/fr-send",
+						href: "/odin-book-v2/fr-send",
 						linkName: "Try Again",
 					});
 					history.push("/error");
@@ -66,7 +66,7 @@ const FriendRequestForm = () => {
 			setMessage({
 				title: "Validation failed",
 				body: "The username you entered does not exist",
-				href: "/fr-send",
+				href: "/odin-book-v2/fr-send",
 				linkName: "Try Again",
 			});
 			history.push("/error");
