@@ -84,17 +84,17 @@ const Login = () => {
 				})
 				.catch((error) => {
 					console.log(error);
-					history.push("/error");
+					history.push("/odin-book-v2/error");
 				});
 		} else {
 			setMessage({
 				title: "Validation failed",
 				body:
 					"The username and password fields must be filled out and no more than 30 characters.",
-				href: "/",
+				href: "/odin-book-v2",
 				linkName: "Try Again",
 			});
-			history.push("/error");
+			history.push("/odin-book-v2/error");
 		}
 	};
 
@@ -130,7 +130,7 @@ const Login = () => {
 			</div>
 			<span id={styles.noAccountSpan}>
 				Don't have an account?{" "}
-				<Link id={styles.signUp} to="/signup">
+				<Link id={styles.signUp} to="/odin-book-v2/signup">
 					Sign Up
 				</Link>
 			</span>
