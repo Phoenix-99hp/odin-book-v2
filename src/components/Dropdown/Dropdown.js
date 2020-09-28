@@ -42,8 +42,8 @@ const Dropdown = () => {
 							>
 								<Link
 									name={item.name}
-									click={item.click}
-									href={item.href}
+									click={() => history.push(item.href)}
+									// href={item.href}
 									value={user.friendRequests.length}
 								></Link>
 							</div>
@@ -57,8 +57,9 @@ const Dropdown = () => {
 							>
 								<Link
 									name={item.name}
-									click={item.click}
-									href={item.href}
+									// onClick={() => history.push(item.href)}
+									click={() => history.push(item.href)}
+									// href={item.href}
 								></Link>
 							</div>
 						);
