@@ -21,6 +21,7 @@ const SignUp = () => {
 					console.log(JSON.parse(request.response), "JSON");
 					if (JSON.parse(request.response)) {
 						handleLogin(JSON.parse(request.response));
+						history.push("/dashboard");
 					} else {
 						setMessage({
 							title: "Something went wrong",
