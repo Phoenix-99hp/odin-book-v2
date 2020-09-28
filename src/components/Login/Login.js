@@ -4,13 +4,15 @@ import styles from "./Login.module.css";
 import { handleLogin } from "../../services/auth";
 import { useHistory, Link } from "react-router-dom";
 import { ErrorContext } from "../../contexts/ErrorContext";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/slices/userSlice";
 
 // const { setProfile } = useContext(ProfileContext);
 const Login = () => {
 	const { setMessage } = useContext(ErrorContext);
 	const history = useHistory();
 	// const user = useSelector(selectUser);
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
 	const [userLogin, setUserLogin] = useState({
 		username: null,
@@ -80,6 +82,7 @@ const Login = () => {
 					console.log("login", response);
 					if (response) {
 						handleLogin(response);
+						dispatch(setUser(response));
 						history.push("/dashboard");
 					}
 				})
