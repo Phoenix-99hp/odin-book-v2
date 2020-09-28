@@ -79,12 +79,20 @@ const Login = () => {
 					return res.json();
 				})
 				.then((response) => {
-					console.log("login", response);
 					if (response) {
 						handleLogin(response);
 						dispatch(setUser(response));
 						dispatch(setProfile(response));
 						history.push("/dashboard");
+					} else {
+						setMessage({
+							title: "No server response",
+							body:
+								"Make sure you entered your username and password correctly",
+							href: "/",
+							linkName: "Try Again",
+						});
+						history.push("/error");
 					}
 				})
 				.catch((error) => {
