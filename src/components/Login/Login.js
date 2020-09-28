@@ -80,6 +80,7 @@ const Login = () => {
 					console.log("login", response);
 					if (response) {
 						handleLogin(response);
+						history.push("/dashboard");
 					}
 				})
 				.catch((error) => {

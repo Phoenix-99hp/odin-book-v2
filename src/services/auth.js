@@ -74,7 +74,6 @@ export const setMenu = (selection) =>
 export const handleLogin = (user) => {
 	if (isBrowser()) {
 		setUserStorage(user);
-		window.location.href = "/dashboard";
 	} else {
 		return null;
 	}
