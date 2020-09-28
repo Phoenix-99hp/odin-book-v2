@@ -181,7 +181,7 @@ const UserList = () => {
 	const handleRemoveFriend = (e) => {
 		e.preventDefault();
 		const friendToRemove =
-			e.target.parentElement.previousElementSibling.textContent;
+			e.target.parentElement.previousElementSibling.children[1].textContent;
 		fetch(
 			`https://salty-mesa-94052.herokuapp.com/api/friends/${user._id}/${friendToRemove}/`,
 			{
