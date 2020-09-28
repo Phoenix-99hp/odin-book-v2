@@ -25,8 +25,8 @@ const SignUp = () => {
 					console.log(JSON.parse(request.response), "JSON");
 					if (JSON.parse(request.response)) {
 						handleLogin(JSON.parse(request.response));
-						dispatch(setUser(request.response));
-						dispatch(setProfile(request.response));
+						dispatch(setUser(JSON.parse(request.response)));
+						dispatch(setProfile(JSON.parse(request.response)));
 						history.push("/dashboard");
 					} else {
 						setMessage({
