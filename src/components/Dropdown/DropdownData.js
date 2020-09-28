@@ -30,7 +30,6 @@ const DropdownData = [
 	},
 	{
 		name: "Logout",
-		click: () => logout(),
 	},
 ];
 

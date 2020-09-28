@@ -5,6 +5,7 @@ import styles from "./Dropdown.module.css";
 import { useSelector } from "react-redux";
 import { selectUser, setFriendRequests } from "../../redux/slices/userSlice";
 import { useHistory } from "react-router-dom";
+import { logout } from "../../services/auth.js";
 
 const Dropdown = () => {
 	const user = useSelector(selectUser);
@@ -45,6 +46,20 @@ const Dropdown = () => {
 									click={() => history.push(item.href)}
 									// href={item.href}
 									value={user.friendRequests.length}
+								></Link>
+							</div>
+						);
+					} else if (index === 6) {
+						return (
+							<div
+								onClick={() => logout()}
+								className={styles.dropdownItem}
+								key={index}
+							>
+								<Link
+									name={item.name}
+									click={() => logout()}
+									// href={item.href}
 								></Link>
 							</div>
 						);
