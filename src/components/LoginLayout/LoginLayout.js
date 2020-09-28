@@ -24,7 +24,7 @@ const LoginLayout = ({ children }) => {
 		setTimeout(() => {
 			dispatch(setTransitioning(false));
 			setShowTransitionPage(true);
-		}, 2000);
+		}, 3000);
 	}, [shouldTransition]);
 
 	useEffect(() => {
