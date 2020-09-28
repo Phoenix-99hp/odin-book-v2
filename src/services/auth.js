@@ -74,6 +74,7 @@ export const setMenu = (selection) =>
 export const handleLogin = (user) => {
 	if (isBrowser()) {
 		setUserStorage(user);
+		setProfileStorage(user);
 	} else {
 		return null;
 	}

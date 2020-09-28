@@ -5,6 +5,7 @@ import { useHistory, Link } from "react-router-dom";
 import { ErrorContext } from "../../contexts/ErrorContext";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/slices/userSlice";
+import { setProfile } from "../../redux/slices/profileSlice";
 
 // const { setProfile } = useContext(ProfileContext);
 const Login = () => {
@@ -82,6 +83,7 @@ const Login = () => {
 					if (response) {
 						handleLogin(response);
 						dispatch(setUser(response));
+						dispatch(setProfile(response));
 						history.push("/dashboard");
 					}
 				})
