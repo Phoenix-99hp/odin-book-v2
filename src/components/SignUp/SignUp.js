@@ -3,10 +3,14 @@ import { handleLogin } from "../../services/auth";
 import styles from "./SignUp.module.css";
 import { useHistory } from "react-router-dom";
 import { ErrorContext } from "../../contexts/ErrorContext";
+import { setProfile } from "../../redux/slices/profileSlice";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/slices/userSlice";
 
 const SignUp = () => {
 	const { setMessage } = useContext(ErrorContext);
 	const history = useHistory();
+	const dispatch = useDispatch();
 
 	const handleFormSubmit = (e) => {
 		const url = "https://salty-mesa-94052.herokuapp.com/api/signup";
@@ -21,6 +25,8 @@ const SignUp = () => {
 					console.log(JSON.parse(request.response), "JSON");
 					if (JSON.parse(request.response)) {
 						handleLogin(JSON.parse(request.response));
+						dispatch(setUser(request.response));
+						dispatch(setProfile(request.response));
 						history.push("/dashboard");
 					} else {
 						setMessage({
