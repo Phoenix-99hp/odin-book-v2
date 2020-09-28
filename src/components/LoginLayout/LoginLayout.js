@@ -30,7 +30,7 @@ const LoginLayout = ({ children }) => {
 	useEffect(() => {
 		setTimeout(() => {
 			setOpacity(true);
-		}, 2000);
+		}, 3000);
 	}, [showTransitionPage]);
 
 	return transitioning ? (
