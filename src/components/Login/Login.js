@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import { useDispatch } from "react-redux";
 import styles from "./Login.module.css";
 import { handleLogin } from "../../services/auth";
 import { useHistory, Link } from "react-router-dom";
