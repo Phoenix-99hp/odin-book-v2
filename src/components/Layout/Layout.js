@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
 		setTimeout(() => {
 			dispatch(setTransitioning(false));
 			setShowTransitionPage(true);
-		}, 3000);
+		}, 2000);
 	}, [shouldTransition]);
 
 	useEffect(() => {
