@@ -110,6 +110,15 @@
 	font-size: 17px;
 }
 
+#warning {
+	/* flex: 1 1 100%; */
+	max-width: 500px;
+	margin: 0 auto;
+	padding-top: 20px;
+	font-size: 17px;
+	font-family: "Kumbh Sans", sans-serif;
+}
+
 #noAccountSpan {
 	flex: 1 1 100%;
 	padding-top: 20px;

@@ -141,6 +141,12 @@ const Login = () => {
 					</button>
 				</form>
 			</div>
+
+			<p id={styles.warning}>
+				* Note that it may take a few moments to log-in or sign-up once the
+				button is clicked, as the back-end api is deployed to Heroku using the
+				free tier and may be in rest mode.
+			</p>
 			<span id={styles.noAccountSpan}>
 				Don't have an account?{" "}
 				<Link id={styles.signUp} to="/signup">
