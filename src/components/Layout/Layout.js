@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
 	useEffect(() => {
 		setTimeout(() => {
 			setOpacity(true);
-		}, 3000);
+		}, 2000);
 	}, [showTransitionPage]);
 
 	return transitioning ? (
