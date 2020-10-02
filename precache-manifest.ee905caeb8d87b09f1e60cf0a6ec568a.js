@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "70f09deab8ef4d7fe9d5b39e79f2a8ba",
+    "revision": "eb58db2004a606c6e0a4455a35dc7d02",
     "url": "/odin-book-v2/index.html"
   },
   {
-    "revision": "43e0ee836ff82274a515",
-    "url": "/odin-book-v2/static/css/main.69e09e2b.chunk.css"
+    "revision": "dc20166b65479a19ecd7",
+    "url": "/odin-book-v2/static/css/main.ed13bd10.chunk.css"
   },
   {
     "revision": "6ba38f441110d9a73c02",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/odin-book-v2/static/js/2.83b123f6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "43e0ee836ff82274a515",
+    "revision": "dc20166b65479a19ecd7",
     "url": "/odin-book-v2/static/js/main.c3ce8e44.chunk.js"
   },
   {
