@@ -19,13 +19,10 @@ const Like = ({ count, post }) => {
 	// const { setCommentSpinner } = useContext(CommentSpinnerContext);
 
 	useEffect(() => {
-		fetch(
-			`https://salty-mesa-94052.herokuapp.com/api/posts/user-like/${user._id}/${post._id}`,
-			{
-				method: "GET",
-				mode: "cors",
-			}
-		)
+		fetch(`/api/posts/user-like/${user._id}/${post._id}`, {
+			method: "GET",
+			mode: "same-origin",
+		})
 			.then((res) => {
 				return res.json();
 			})
@@ -67,9 +64,9 @@ const Like = ({ count, post }) => {
 		} else {
 			data.likes = likeCount - 1;
 		}
-		fetch(`https://salty-mesa-94052.herokuapp.com/api/posts/like/${post._id}`, {
+		fetch(`/api/posts/like/${post._id}`, {
 			method: "POST",
-			mode: "cors",
+			mode: "same-origin",
 			headers: {
 				"Content-Type": "application/json",
 			},

@@ -23,9 +23,9 @@ const Comments = ({ post, clickableUser, page }) => {
 	// const { commentSpinner } = useContext(CommentSpinnerContext);
 
 	const handleSetProfile = (username, pg) => {
-		fetch(`https://salty-mesa-94052.herokuapp.com/api/profile/${username}`, {
+		fetch(`/api/profile/${username}`, {
 			method: "GET",
-			mode: "cors",
+			mode: "same-origin",
 		})
 			.then((res) => {
 				return res.json();

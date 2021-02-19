@@ -71,7 +71,7 @@
 	width: 100%;
 	max-width: 450px;
 	padding-top: 5px;
-	padding-bottom: 3px;
+	padding-bottom: 5px;
 	margin-left: 5px;
 	font-size: 17px;
 	margin-top: 5px;
@@ -101,4 +101,13 @@ textarea {
 .inputLabel {
 	font-family: "Kumbh Sans", sans-serif;
 	font-size: 17px;
+}
+
+@media screen and (max-width: 300px) {
+	.formGroup {
+		flex-wrap: wrap;
+	}
+	#inputLabel {
+		flex: 1 1 100%;
+	}
 }

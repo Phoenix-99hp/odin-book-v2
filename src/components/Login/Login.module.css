@@ -30,7 +30,7 @@
 	width: 100%;
 	max-width: 300px;
 	padding-top: 5px;
-	padding-bottom: 2px;
+	padding-bottom: 5px;
 	margin-left: 5px;
 	font-size: 17px;
 	margin-top: 5px;
@@ -70,18 +70,18 @@
 
 #loginBtn {
 	cursor: pointer;
-}
-
-#loginBtn {
 	/* background: #a90329; /* Old browsers */
-	border: 1px solid black;
-	padding: 6px 6px 5px;
+	border: 1px solid blue;
+	padding: 7px 6px 5px;
+	height: 35px;
 	/* padding-bottom: 7px; */
 	border-radius: 3px;
+	min-width: 80px;
 	outline: none;
 	color: black;
-	background-color: rgb(148, 226, 31);
+	/* background-color: rgb(148, 226, 31); */
 	font-family: "Kumbh Sans", sans-serif;
+	/* font-family: "Lato"; */
 	font-size: 17px;
 }
 

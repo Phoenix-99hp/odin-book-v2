@@ -1,12 +1,12 @@
 import React from "react";
-import Layout from "../components/Layout/Layout.js";
+import RegularLayout from "../components/RegularLayout/RegularLayout.js";
 import UserList from "../components/UserList/UserList.js";
 
 const UserListPage = () => {
 	return (
-		<Layout>
+		<RegularLayout>
 			<UserList />
-		</Layout>
+		</RegularLayout>
 	);
 };
 

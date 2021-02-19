@@ -26,9 +26,9 @@ const PostForm = () => {
 			user: user._id,
 		};
 		if (validate(postData)) {
-			fetch("https://salty-mesa-94052.herokuapp.com/api/new-post", {
+			fetch("/api/new-post", {
 				method: "POST",
-				mode: "cors",
+				mode: "same-origin",
 				headers: {
 					"Content-Type": "application/json",
 				},

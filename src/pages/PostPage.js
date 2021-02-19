@@ -1,12 +1,12 @@
 import React from "react";
-import Layout from "../components/Layout/Layout.js";
+import RegularLayout from "../components/RegularLayout/RegularLayout.js";
 import PostForm from "../components/PostForm/PostForm.js";
 
 const PostPage = () => {
 	return (
-		<Layout>
+		<RegularLayout>
 			<PostForm />
-		</Layout>
+		</RegularLayout>
 	);
 };
 

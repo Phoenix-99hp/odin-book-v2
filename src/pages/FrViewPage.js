@@ -1,12 +1,12 @@
 import React from "react";
-import Layout from "../components/Layout/Layout.js";
+import RegularLayout from "../components/RegularLayout/RegularLayout.js";
 import ViewFriendRequest from "../components/ViewFriendRequest/ViewFriendRequest.js";
 
 const FrViewPage = () => {
 	return (
-		<Layout>
+		<RegularLayout>
 			<ViewFriendRequest />
-		</Layout>
+		</RegularLayout>
 	);
 };
 

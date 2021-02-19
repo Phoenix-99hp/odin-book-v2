@@ -2,15 +2,23 @@ import React, { useState, useRef } from "react";
 import Link from "../Link/Link.js";
 import DropdownData from "./DropdownData.js";
 import styles from "./Dropdown.module.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectUser, setFriendRequests } from "../../redux/slices/userSlice";
+import { setProfile } from "../../redux/slices/profileSlice";
 import { useHistory } from "react-router-dom";
-import { logout } from "../../services/auth.js";
+import { logout, getUser } from "../../services/auth";
+import { setProfileStorage } from "../../services/auth";
 
 const Dropdown = () => {
 	const user = useSelector(selectUser);
+	const dispatch = useDispatch();
 	const [isInitiated, setIsInitiated] = useState(false);
 	const history = useHistory();
+	const navigateToProfile = () => {
+		dispatch(setProfile(getUser()));
+		setProfileStorage(getUser());
+		history.push("/profile");
+	};
 
 	return (
 		<div
@@ -34,6 +42,17 @@ const Dropdown = () => {
 				}`}
 			>
 				{DropdownData.map((item, index) => {
+					if (index === 1) {
+						return (
+							<div
+								onClick={() => navigateToProfile()}
+								className={styles.dropdownItem}
+								key={index}
+							>
+								<Link name={item.name}></Link>
+							</div>
+						);
+					}
 					if (index === 3) {
 						return (
 							<div

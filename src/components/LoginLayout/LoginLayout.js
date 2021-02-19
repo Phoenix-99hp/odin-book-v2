@@ -16,33 +16,36 @@ const LoginLayout = ({ children }) => {
 	const [showTransitionPage, setShowTransitionPage] = useState(true);
 	const [opacity, setOpacity] = useState(false);
 
-	useEffect(() => {
-		dispatch(setTransitioning(true));
-	}, []);
+	// useEffect(() => {
+	// 	dispatch(setTransitioning(true));
+	// }, []);
 
-	useEffect(() => {
-		setTimeout(() => {
-			dispatch(setTransitioning(false));
-			setShowTransitionPage(true);
-		}, 2000);
-	}, [shouldTransition]);
+	// useEffect(() => {
+	// 	setTimeout(() => {
+	// 		dispatch(setTransitioning(false));
+	// 		setShowTransitionPage(true);
+	// 	}, 2000);
+	// }, [shouldTransition]);
 
-	useEffect(() => {
-		setTimeout(() => {
-			setOpacity(true);
-		}, 2000);
-	}, [showTransitionPage]);
+	// useEffect(() => {
+	// 	setTimeout(() => {
+	// 		setOpacity(true);
+	// 	}, 2000);
+	// }, [showTransitionPage]);
 
-	return transitioning ? (
-		<TransitionPage />
-	) : (
-		<div
-			className={styles.pageContainer}
-			id={opacity ? styles.changeOpacity : null}
-		>
-			<LoginHeader />
-			<main>{children}</main>
-			<footer>© {new Date().getFullYear()}</footer>
+	return (
+		//  transitioning ? (
+		// 	<TransitionPage />
+		// ) : (
+		<div id={styles.fadeContainer}>
+			<div
+				className={styles.pageContainer}
+				id={opacity ? styles.changeOpacity : null}
+			>
+				<LoginHeader />
+				<main>{children}</main>
+				<footer>© {new Date().getFullYear()}</footer>
+			</div>
 		</div>
 	);
 };

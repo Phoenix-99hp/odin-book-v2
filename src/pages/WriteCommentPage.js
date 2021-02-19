@@ -1,12 +1,12 @@
 import React from "react";
 import CommentForm from "../components/CommentForm/CommentForm.js";
-import Layout from "../components/Layout/Layout.js";
+import RegularLayout from "../components/RegularLayout/RegularLayout.js";
 
 const WriteCommentPage = () => {
 	return (
-		<Layout>
+		<RegularLayout>
 			<CommentForm />
-		</Layout>
+		</RegularLayout>
 	);
 };
 

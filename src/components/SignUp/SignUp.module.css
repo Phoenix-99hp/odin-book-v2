@@ -34,7 +34,7 @@
 	width: 100%;
 	max-width: 300px;
 	padding-top: 5px;
-	padding-bottom: 2px;
+	padding-bottom: 5px;
 	margin-left: 5px;
 	font-size: 17px;
 	margin-top: 5px;
@@ -73,13 +73,15 @@
 }
 
 #loginBtn {
-	background-color: rgb(148, 226, 31);
-	border: 1px solid black;
-	padding: 6px 6px 5px;
+	border: 1px solid blue;
+	/* background-color: rgb(148, 226, 31); */
+	/* border: 1px solid black; */
+	padding: 7px 6px 5px;
 	border-radius: 3px;
 	outline: none;
 	font-family: "Kumbh Sans", sans-serif;
 	font-size: 17px;
+	min-width: 80px;
 }
 
 #loginBtn:hover {

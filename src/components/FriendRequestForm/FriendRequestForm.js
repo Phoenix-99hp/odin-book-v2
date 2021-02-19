@@ -27,9 +27,9 @@ const FriendRequestForm = () => {
 			currentUser: user._id,
 		};
 		if (validate(fr)) {
-			fetch("https://salty-mesa-94052.herokuapp.com/api/friend-request", {
+			fetch("/api/friend-request", {
 				method: "POST",
-				mode: "cors",
+				mode: "same-origin",
 				headers: {
 					"Content-Type": "application/json",
 				},

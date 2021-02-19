@@ -67,6 +67,8 @@
 	background-color: rgb(187, 222, 243);
 	border-radius: 10px;
 	border: 2px solid black;
+	margin-right: 20px;
+	margin-left: 20px;
 }
 
 .commentUser,
@@ -218,12 +220,19 @@
 }
 
 @media screen and (max-width: 1000px) {
-	#profileInfo {
+	/* #profileInfo {
 		position: absolute;
 		top: -32px;
+	} */
+
+	#profileInfo {
+		flex: 1 1 100%;
 	}
 	#placeholder {
 		display: none;
+	}
+	#postsHeading {
+		padding-top: 35px;
 	}
 	#container {
 		width: 100%;
@@ -231,7 +240,29 @@
 		padding-left: 30px;
 	}
 	#profileContainer {
-		padding-top: 220px;
-		padding-bottom: 379px;
+		flex-wrap: wrap;
+		/* padding-top: 220px; */
+		/* padding-bottom: 379px; */
+	}
+}
+
+@media screen and (max-width: 450px) {
+	#avatar,
+	.noAvatar {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 300px) {
+	.postUser {
+		flex-wrap: wrap;
+	}
+	.username {
+		flex: 1 1 100%;
+		padding-bottom: 10px;
+		font-size: 15px;
+	}
+	#postsHeading {
+		font-size: 25px;
 	}
 }

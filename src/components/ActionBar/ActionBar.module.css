@@ -60,6 +60,7 @@
 	right: 3px;
 	z-index: 99;
 	top: -6px;
+	padding-top: 1px;
 }
 
 #friendRequestsBtn {

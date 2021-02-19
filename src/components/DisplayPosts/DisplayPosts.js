@@ -21,9 +21,9 @@ const DisplayPosts = () => {
 	const removeAvatar = useMediaQuery({ query: "(max-width: 380px)" });
 
 	useEffect(() => {
-		fetch(`https://salty-mesa-94052.herokuapp.com/api/posts/${user._id}`, {
+		fetch(`/api/posts/${user._id}`, {
 			method: "GET",
-			mode: "cors",
+			mode: "same-origin",
 		})
 			.then((res) => {
 				return res.json();
@@ -51,12 +51,12 @@ const DisplayPosts = () => {
 		console.log("LOAD", postsToDisplay[0]);
 		if (postsToDisplay[0]) {
 			fetch(
-				`https://salty-mesa-94052.herokuapp.com/api/posts/more/${user._id}/${
+				`/api/posts/more/${user._id}/${
 					postsToDisplay[postsToDisplay.length - 1]._id
 				}`,
 				{
 					method: "GET",
-					mode: "cors",
+					mode: "same-origin",
 				}
 			)
 				.then((res) => {
@@ -97,9 +97,9 @@ const DisplayPosts = () => {
 	};
 
 	const handleSetProfile = (username) => {
-		fetch(`https://salty-mesa-94052.herokuapp.com/api/profile/${username}`, {
+		fetch(`/api/profile/${username}`, {
 			method: "GET",
-			mode: "cors",
+			mode: "same-origin",
 		})
 			.then((res) => {
 				return res.json();

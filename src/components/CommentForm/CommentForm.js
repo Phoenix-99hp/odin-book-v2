@@ -29,9 +29,9 @@ const CommentForm = () => {
 			user: user._id,
 		};
 		if (validate(commentData)) {
-			fetch("https://salty-mesa-94052.herokuapp.com/api/new-comment", {
+			fetch("/api/new-comment", {
 				method: "POST",
-				mode: "cors",
+				mode: "same-origin",
 				headers: {
 					"Content-Type": "application/json",
 				},

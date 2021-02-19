@@ -23,17 +23,14 @@ const GetFriendRequests = () => {
 			request:
 				e.target.parentElement.previousElementSibling.children[1].textContent,
 		};
-		fetch(
-			`https://salty-mesa-94052.herokuapp.com/api/friend-request/${user._id}/accept`,
-			{
-				method: "POST",
-				mode: "cors",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(requestToAccept),
-			}
-		)
+		fetch(`/api/friend-request/${user._id}/accept`, {
+			method: "POST",
+			mode: "same-origin",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(requestToAccept),
+		})
 			.then((res) => {
 				return res.json();
 			})
@@ -70,17 +67,14 @@ const GetFriendRequests = () => {
 			request:
 				e.target.parentElement.previousElementSibling.children[1].textContent,
 		};
-		fetch(
-			`https://salty-mesa-94052.herokuapp.com/api/friend-request/${user._id}/decline`,
-			{
-				method: "POST",
-				mode: "cors",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(requestToDecline),
-			}
-		)
+		fetch(`/api/friend-request/${user._id}/decline`, {
+			method: "POST",
+			mode: "same-origin",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(requestToDecline),
+		})
 			.then((res) => {
 				return res.json();
 			})
@@ -112,13 +106,10 @@ const GetFriendRequests = () => {
 	};
 
 	useEffect(() => {
-		fetch(
-			`https://salty-mesa-94052.herokuapp.com/api/friend-request/${user._id}`,
-			{
-				method: "GET",
-				mode: "cors",
-			}
-		)
+		fetch(`/api/friend-request/${user._id}`, {
+			method: "GET",
+			mode: "same-origin",
+		})
 			.then((res) => {
 				return res.json();
 			})
@@ -142,9 +133,9 @@ const GetFriendRequests = () => {
 	}, []);
 
 	const handleSetProfile = (username) => {
-		fetch(`https://salty-mesa-94052.herokuapp.com/api/profile/${username}`, {
+		fetch(`/api/profile/${username}`, {
 			method: "GET",
-			mode: "cors",
+			mode: "same-origin",
 		})
 			.then((res) => {
 				return res.json();

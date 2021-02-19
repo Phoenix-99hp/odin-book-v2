@@ -1,12 +1,12 @@
 import React from "react";
 import FriendRequestForm from "../components/FriendRequestForm/FriendRequestForm.js";
-import Layout from "../components/Layout/Layout.js";
+import RegularLayout from "../components/RegularLayout/RegularLayout.js";
 
 const FrSendPage = () => {
 	return (
-		<Layout>
+		<RegularLayout>
 			<FriendRequestForm />
-		</Layout>
+		</RegularLayout>
 	);
 };
 export default FrSendPage;

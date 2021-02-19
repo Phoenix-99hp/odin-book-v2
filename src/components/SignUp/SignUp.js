@@ -13,7 +13,7 @@ const SignUp = () => {
 	const dispatch = useDispatch();
 
 	const handleFormSubmit = (e) => {
-		const url = "https://salty-mesa-94052.herokuapp.com/api/signup";
+		const url = "/api/signup";
 		const request = new XMLHttpRequest();
 
 		request.open("POST", url, true);

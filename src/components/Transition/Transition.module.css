@@ -213,3 +213,14 @@ main {
 #changeOpacity {
 	opacity: 1;
 }
+
+@media screen and (max-width: 350px) {
+	#contentArea,
+	#transitionContainer {
+		width: 90px;
+	}
+	.odinImage,
+	.facebookImage {
+		width: 45px;
+	}
+}

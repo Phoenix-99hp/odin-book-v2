@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { setShouldTransitionStorage } from "../../services/auth.js";
+import { useMediaQuery } from "react-responsive";
 // import { selectShouldTransition } from "../../redux/slices/shouldTransitionSlice";
 // import { useDispatch, useSelector } from "react-redux";
 // import Spinner from "../Spinner/Spinner.js";
