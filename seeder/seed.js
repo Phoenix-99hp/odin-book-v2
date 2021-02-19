@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const db = require("../models");
 const bcrypt = require("bcryptjs");
 
-mongoose.connect(process.env.DB_URI || process.env.DEV_DB, {
+mongoose.connect(process.env.DB_URI, {
 	useNewUrlParser: true,
 	useFindAndModify: false,
 	useUnifiedTopology: true,
